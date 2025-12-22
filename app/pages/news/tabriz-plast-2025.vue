@@ -15,7 +15,7 @@
     <!-- Card Container -->
     <div class="card relative h-[490px] w-full max-w-[900px] mx-auto bg-white shadow-[10px_10px_93px_0px_rgba(0,0,0,0.75)]">
       <!-- Thumbnail Image SLIDER (replaced static image) -->
-      <div class="thumbnail absolute left-[30px] top-[-30px] h-[390px] w-[530px] overflow-hidden shadow-[10px_10px_60px_0px_rgba(0,0,0,0.75)] flex items-center justify-center">
+      <div class="thumbnail absolute left-[30px] top-[-30px] h-[340px] w-[530px] overflow-hidden shadow-[10px_10px_60px_0px_rgba(0,0,0,0.75)] flex items-center justify-center">
         <img
           class="left absolute left-1/2 top-1/2 h-auto w-full -translate-x-1/2 -translate-y-1/2 transform transition-all duration-500"
           :src="images[activeIndex]"
@@ -137,7 +137,9 @@ import Navbar from '~/components/navbar.vue'
 
 // Slider images (add or adjust paths as needed)
 const images = [
-  '/invitation.jpg'
+'/tabriz-plast-1.webp',
+'/tabriz-plast-2.webp'
+
 ]
 const activeIndex = ref(0)
 let interval = null

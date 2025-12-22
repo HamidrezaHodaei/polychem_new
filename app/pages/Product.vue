@@ -517,7 +517,7 @@ specs: [
     subtitleTitle: 'DESCRIPTION',
     subtitle: `CALCICHEM 110 FRF is a mineral modifier with a high, very fine, treated CaCO3 content that has an excellent dispersion in the final product, indicated for direct addition in the processing of polyolefins.
 The CALCICHEM 110 FRF mineral modifier is designed for films, Raffia and ropes and also suitable for general-purpose products with PE and PP carriers.`,
-    detailImage: '/110-Frf.jpg',
+    detailImage: '/110-FrF.webp',
     propertyLabel: 'Item',
     detailSections: [
       

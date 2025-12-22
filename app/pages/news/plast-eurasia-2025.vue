@@ -134,9 +134,9 @@ import Navbar from '~/components/navbar.vue'
 
 // Slider images (add or adjust paths as needed)
 const images = [
-  '/plast-3.png',
+ 
   '/plast-2.jpg',
-  '/plast-1.jpg'
+   '/plast-3.png'
 ]
 const activeIndex = ref(0)
 let interval = null
