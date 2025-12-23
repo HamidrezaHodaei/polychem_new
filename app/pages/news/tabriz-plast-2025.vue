@@ -53,13 +53,12 @@
         <div class="separator mt-2.5 border-t border-[#C3C3C3]"></div>
 
         <!-- Description -->
-        <p class="pt-2.5  text-[0.95rem] leading-[150%] text-black">POLYCHEM will participate in the 22nd International Specialized Exhibition of Rubber, Plastics and Machinery (Tabriz Plast 2025) 
+        <p class="pt-2.5  text-[0.95rem] leading-[150%] text-black">POLYCHEM participated in the 22nd International Specialized Exhibition of Rubber, Plastics and Machinery (Tabriz Plast 2025) 
          <br> Booth Information:
 <br> Venue: Tabriz International Exhibition Center
 <br> Hall: Shahriar
 <br> Booth No.: 21
 <br>
-The exhibition will be held from December 16 to 19, 2025.
         </p>
         
         <!-- Read More Button -->

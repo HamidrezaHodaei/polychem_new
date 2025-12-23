@@ -125,7 +125,7 @@ const currentImageIndex = ref(0)
 
 const backgroundImages = [
 '/Tabriz-Plast-2025-1.webp',  
-'/news1.jfif',
+'/plast-2.jpg',
   '/Visit-of-the-CEO-of-Bank-of-Industry.png',
   '/Hdchem.webp',
   '/PolypropyleneandPolypropyleneCompositesMarketzz.jpg',
@@ -138,7 +138,7 @@ const posts = [
   {
     date: 'Dec 16-19, 2025',
     title: 'POLYCHEM at Tabriz Plast 2025',
-    excerpt: 'POLYCHEM will participate in the 22nd International Specialized Exhibition of Rubber, Plastics and Machinery (Tabriz Plast 2025).',
+    excerpt: 'POLYCHEM participated in the 22nd International Specialized Exhibition of Rubber, Plastics and Machinery (Tabriz Plast 2025).',
     tag: 'event',
     link: '/news/tabriz-plast-2025'
   },

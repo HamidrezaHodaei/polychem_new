@@ -36,18 +36,18 @@
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 
 const backgroundImages = [
-  '/news1.jfif',
+  '/plast-2.jpg',
   '/Visit-of-the-CEO-of-Bank-of-Industry.png',
   '/Hdchem.webp',
   '/PolypropyleneandPolypropyleneCompositesMarketzz.jpg',
-  '/Tabriz-Plast-2025-1.Webp',
+  '/IMG_0326.jpg',
   '/high-angle-plastic-bottles-arrangement2.jpg'
 ]
 
 const cards = ref([
 {
     badge: 'Event',
-    title: 'POLYCHEM will participate in the 22nd International Specialized Exhibition of Tabriz Plast 2025',
+    title: 'POLYCHEM participated in the 22nd International Specialized Exhibition of Tabriz Plast 2025',
     date: 'Dec 16-19, 2025',
     link: '/news/tabriz-plast-2025',
     image: backgroundImages[4]

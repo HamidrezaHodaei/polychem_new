@@ -152,8 +152,8 @@
               <!-- changed: show preview product image instead of static icon -->
               <img
                 ref="previewImage"
-                :src="hoveredItem?.image || '/955w-p.jpg'"
-                alt="preview"
+                :src="hoveredItem?.image || ''"
+                alt=""
                 class="w-1500 h-1500   object-cover transform scale-0"
                 :style="previewImageStyle"
               />
@@ -165,7 +165,7 @@
                   class="opacity-0 transform translate-y-4"
                   :style="previewTitleStyle"
                 >
-                  <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">{{ hoveredItem?.title || 'Cyber Solutions' }}</h3>
+                  <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">{{ hoveredItem?.title }}</h3>
                   <p class="text-xl text-gray-600">{{ hoveredItem?.code || '' }}</p>
                 </div>
                 <p 
@@ -173,7 +173,7 @@
                   class="text-gray-700 text-lg max-w-md mx-auto opacity-0 transform translate-y-4 mt-3"
                   :style="previewDescStyle"
                 >
-                  {{ hoveredItem?.description || 'Hover over a use case to see details' }}
+                  {{ hoveredItem?.description || '' }}
                 </p>
               </div>
             </div>
@@ -215,7 +215,7 @@
             </div>
 
             <!-- Menu Items -->
-            <div class="space-y-1 max-h-[calc(100vh-200px)] md:max-h-[70vh] overflow-y-auto pr-4 custom-scrollbar pb-6 md:pb-0">
+            <div ref="itemsWrapper" class="space-y-1 max-h-[calc(100vh-200px)] md:max-h-[70vh] overflow-y-auto pr-4 custom-scrollbar pb-6 md:pb-0 menu-items-scroll">
               <button
                 v-for="(item, index) in useCases"
                 :key="index"
@@ -260,11 +260,20 @@ const previewIcon = ref(null) // keep for backward-compat if used elsewhere
 const previewImage = ref(null)
 const previewTitle = ref(null)
 const previewDesc = ref(null)
+const itemsWrapper = ref(null)
 const menuItems = ref([])
 const isMenuOpen = ref(false)
 const hoveredItem = ref(null)
 const route = useRoute()
 const router = useRouter()
+// handlers for wheel/touch to prevent background scrolling
+const wheelHandler = (e) => {
+  // allow the event to scroll the itemsWrapper but stop it bubbling to body
+  e.stopPropagation()
+}
+const touchHandler = (e) => {
+  e.stopPropagation()
+}
 
 const useCases = [
   { 
@@ -361,7 +370,7 @@ const useCases = [
   },
   { 
     code: '', 
-    title: 'UVChem MB-R18', 
+    title: 'UVCHEM MB-R18', 
     description: 'High-performance UV stabilizer masterbatch for raffia and woven fabric. Contains HALS and UV absorbers for long-term resistance to photo-oxidation, color fading, and mechanical property loss. Excellent dispersion, thermal stability, and compatibility with PP matrix.',
     image: '/uvchem-2.webp',
     index: 9,
@@ -427,6 +436,8 @@ const openMenu = () => {
   
   // Enable pointer events
   menu.style.pointerEvents = 'auto'
+  // prevent background page scrolling while menu is open
+  try { document.body.style.overflow = 'hidden' } catch (err) {}
   
   // Create timeline
   const tl = gsap.timeline()
@@ -541,6 +552,12 @@ const closeMenu = () => {
     onComplete: () => {
       menu.style.pointerEvents = 'none'
       hoveredItem.value = null
+      // restore body scrolling and remove event listeners
+      try { document.body.style.overflow = '' } catch (err) {}
+      if (itemsWrapper.value) {
+        itemsWrapper.value.removeEventListener('wheel', wheelHandler)
+        itemsWrapper.value.removeEventListener('touchmove', touchHandler)
+      }
     }
   }, '-=0.4')
 }
@@ -563,6 +580,24 @@ onMounted(async () => {
   }
   if (previewImage.value) {
     gsap.set(previewImage.value, { scale: 0.85, opacity: 0 })
+  }
+
+  // ensure wheel/touch scrolling works inside the items wrapper
+  if (itemsWrapper.value) {
+    itemsWrapper.value.style.overscrollBehavior = 'contain'
+    itemsWrapper.value.style.touchAction = 'auto'
+    // attach handlers so wheel/touch don't bubble to body
+    itemsWrapper.value.addEventListener('wheel', wheelHandler, { passive: false })
+    itemsWrapper.value.addEventListener('touchmove', touchHandler, { passive: false })
+  }
+})
+
+onUnmounted(() => {
+  // cleanup listeners
+  try { document.body.style.overflow = '' } catch (err) {}
+  if (itemsWrapper.value) {
+    itemsWrapper.value.removeEventListener('wheel', wheelHandler)
+    itemsWrapper.value.removeEventListener('touchmove', touchHandler)
   }
 })
 
