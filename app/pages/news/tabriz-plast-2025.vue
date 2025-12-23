@@ -17,7 +17,7 @@
       <!-- Thumbnail Image SLIDER (replaced static image) -->
       <div class="thumbnail absolute left-[30px] top-[-30px] h-[340px] w-[530px] overflow-hidden shadow-[10px_10px_60px_0px_rgba(0,0,0,0.75)] flex items-center justify-center">
         <img
-          class="left absolute left-1/2 top-1/2 h-auto w-full -translate-x-1/2 -translate-y-1/2 transform transition-all duration-500"
+          class="left absolute left-1/2 top-1/2 h-auto w-full -translate-x-1/2 -translate-y-1/2 transform transition-all duration-300"
           :src="images[activeIndex]"
           alt="Blog thumbnail"
         />
@@ -137,8 +137,11 @@ import Navbar from '~/components/navbar.vue'
 
 // Slider images (add or adjust paths as needed)
 const images = [
-'/tabriz-plast-1.webp',
-'/tabriz-plast-2.webp'
+'/Tabriz-Plast-2025-2.webp',
+'/Tabriz-Plast-2025-3.webp',
+'/Tabriz-Plast-2025-4.webp',
+'/Tabriz-Plast-2025-5.webp',
+'/Tabriz-Plast-2025-6.webp'
 
 ]
 const activeIndex = ref(0)
@@ -157,7 +160,7 @@ function goToSlide(idx) {
 onMounted(() => {
   interval = setInterval(() => {
     nextSlide()
-  }, 3500)
+  }, 4000)
 })
 onBeforeUnmount(() => {
   clearInterval(interval)

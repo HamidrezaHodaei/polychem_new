@@ -38,9 +38,9 @@ import { ref, onMounted, onUnmounted, computed } from 'vue'
 const backgroundImages = [
   '/news1.jfif',
   '/Visit-of-the-CEO-of-Bank-of-Industry.png',
-  '/Hdchem.jpg',
+  '/Hdchem.webp',
   '/PolypropyleneandPolypropyleneCompositesMarketzz.jpg',
-  '/invitation.jpg',
+  '/Tabriz-Plast-2025-1.Webp',
   '/high-angle-plastic-bottles-arrangement2.jpg'
 ]
 

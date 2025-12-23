@@ -18,7 +18,7 @@
       <div class="thumbnail absolute left-[30px] top-[-30px] h-[280px] w-[530px] overflow-hidden shadow-[10px_10px_60px_0px_rgba(0,0,0,0.75)]">
         <img
           class="left absolute left-1/2 top-1/2 h-auto w-full -translate-x-1/2 -translate-y-1/2 transform "
-          src="/Hdchem.jpg"
+          src="/Hdchem.webp"
           alt="Blog thumbnail"
         />
       </div>

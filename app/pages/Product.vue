@@ -278,7 +278,7 @@ const products = [
     subtitleTitle: 'DESCRIPTION',
     subtitle: `Rotochem 0955B is a specialized blue color plastic compound designed for rotational molding applications. It is a compound of linear medium density polyethylene copolymer grade with a narrow molecular weight distribution with Tio2 that possesses a range of beneficial characteristics. Rotochem is an ideal choice for manufacturers who require a reliable and durable material that can withstand harsh environmental conditions. Whether utilized in industrial or consumer applications, this plastic material is a suitable choice for those seeking consistent and stable materials.`,
     detailText: 'Rotochem 0955W delivers bright, uniform walls for large molded parts while maintaining impressive impact strength after long UV exposure. Customers rely on it for agricultural tanks, medical housings, and premium consumer bins where cosmetic consistency matters as much as durability.',
-    detailImage: '/955B.jpg',
+    detailImage: '/955B.webp',
     detailSections: [
       
       {
@@ -620,10 +620,10 @@ specs: [
   
  
   {
-    title: 'UVChem MB-R18',
+    title: 'UVCHEM MB-R18',
     price: '',
     subtitleTitle: 'DESCRIPTION',
-    subtitle: `UVChem MB-R18 is a high-performance UV stabilizer masterbatch, designed for use in raffia and woven fabric applications. It contains a synergistic blend of Hindered Amine Light Stabilizers (HALS) and UV absorbers optimized for long-term resistance against photo-oxidation, loss of mechanical properties, and color fading. The product provides superior dispersion, thermal stability, and process consistency in tape extrusion and drawing processes. The masterbatch is fully compatible with PP matrix and formulated to minimize processing discoloration and to provide long-term UV protection when dosed at 1 wt.% in the yarn formulation.`,
+    subtitle: `UVCHEM MB-R18 is a high-performance UV stabilizer masterbatch, designed for use in raffia and woven fabric applications. It contains a synergistic blend of Hindered Amine Light Stabilizers (HALS) and UV absorbers optimized for long-term resistance against photo-oxidation, loss of mechanical properties, and color fading. The product provides superior dispersion, thermal stability, and process consistency in tape extrusion and drawing processes. The masterbatch is fully compatible with PP matrix and formulated to minimize processing discoloration and to provide long-term UV protection when dosed at 1 wt.% in the yarn formulation.`,
     detailImage: '/Uv-chem.jpg', 
     detailSections: [
       {

@@ -124,10 +124,10 @@ const activeTab = ref(0)
 const currentImageIndex = ref(0)
 
 const backgroundImages = [
-'/invitation.jpg',  
+'/Tabriz-Plast-2025-1.webp',  
 '/news1.jfif',
   '/Visit-of-the-CEO-of-Bank-of-Industry.png',
-  '/Hdchem.jpg',
+  '/Hdchem.webp',
   '/PolypropyleneandPolypropyleneCompositesMarketzz.jpg',
   '/dynamic-data-visualization-3d.jpg',
   '/high-angle-plastic-bottles-arrangement2.jpg'
