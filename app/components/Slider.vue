@@ -1,27 +1,25 @@
 <template>
-  <div class="container mx-auto px-4 font-[Montserrat] text-red-100]">
+  <div class="container mx-auto px-4 font-[Montserrat] text-red-100">
     <div class="w-full">
       <div
         ref="cardsContainer"
-        class="relative flex justify-center items-center h-[80vh] mb-24"
+        class="relative flex justify-center items-center h-[80vh] mb-24 mt-24 pt-44"
       >
         <!-- Card 1 -->
         <div
           ref="card1"
-          class="absolute w-[90%] md:w-[85.5%] h-[76.5vh] rounded-[20px] shadow-2xl flex flex-col md:flex-row items-stretch overflow-hidden"
-          style="top: 0px; z-index: 2;"
+          class="card-stack absolute w-[90%] md:w-[85.5%] h-[76.5vh] rounded-[20px] shadow-2xl flex flex-col md:flex-row items-stretch overflow-hidden"
+          style="top: 10%; z-index: 2;"
         >
-          <!-- Left: Image (60% on desktop, 100% on mobile) -->
           <div class="card-image w-full md:w-3/5 overflow-hidden rounded-t-[16px] md:rounded-tl-[20px] md:rounded-bl-[20px] md:rounded-tr-[0px] md:rounded-br-[0px]">
-            <img src="/955w.jpg" alt="Product 1" class="w-full h-full object-cover filter grayscale" />
+            <img src="/955w.webp" alt="Product 1" class="w-full h-full object-cover filter grayscale" />
           </div>
 
-          <!-- Right: Content (40% on desktop) -->
           <div class="w-full md:w-2/5 p-8 flex flex-col justify-center gap-4 card-content">
             <h2 class="text-3xl md:text-4xl uppercase font-[Montserrat] text-[#848484]">Rotochem 0955W</h2>
-            <p class="text-base md:text-lg text-[#848484] font-[Montserrat]">Rotochem 0955W – White rotational molding compound based on MDPE copolymer with narrow MWD and TiO₂.Offering exceptional durability and superior UV resistance, it is the perfect choice for demanding industrial and consumer applications.</p>
+            <p class="text-base md:text-lg text-[#848484] font-[Montserrat]">Rotochem 0955W – White rotational molding compound based on MDPE copolymer with narrow MWD and TiO₂. Offering exceptional durability and superior UV resistance, it is the perfect choice for demanding industrial and consumer applications.</p>
             <NuxtLink to="/product?index=0" class="btn-slide-down w-full md:w-auto h-12 rounded-lg relative overflow-hidden border-2 border-[#FFCD05] text-[#FFCD05] transition-colors max-w-[220px] flex items-center justify-center">
-              <span class="relative z-10 font-medium">Technical Data Sheet </span>
+              <span class="relative z-10 font-medium">Technical Data Sheet</span>
             </NuxtLink>
           </div>
         </div>
@@ -29,18 +27,18 @@
         <!-- Card 2 -->
         <div
           ref="card2"
-          class="absolute w-[90%] md:w-[85.5%] h-[76.5vh] rounded-[20px] shadow-2xl flex flex-col md:flex-row items-stretch overflow-hidden"
-          style="top: 30px; z-index: 3;"
+          class="card-stack absolute w-[90%] md:w-[85.5%] h-[76.5vh] rounded-[20px] shadow-2xl flex flex-col md:flex-row items-stretch overflow-hidden"
+          style="top: 80px; z-index: 3;"
         >
           <div class="card-image w-full md:w-3/5 overflow-hidden rounded-t-[16px] md:rounded-tl-[20px] md:rounded-bl-[20px] md:rounded-tr-[0px] md:rounded-br-[0px]">
-            <img src="/POLYFILF700.jpg" alt="Product 2" class="w-full h-full object-cover filter grayscale" />
+            <img src="/POLYFILF700.webp" alt="Product 2" class="w-full h-full object-cover filter grayscale" />
           </div>
 
           <div class="w-full md:w-2/5 p-8 flex flex-col justify-center gap-4 card-content">
             <h2 class="text-3xl md:text-4xl font-[Montserrat] text-[#848484]">POLYFIL F700</h2>
             <p class="text-base md:text-lg text-[#848484] font-[Montserrat]">POLYFIL F700 – High-performance HDPE blown film compound offering superior strength, excellent film uniformity, and outstanding processability.</p>
             <NuxtLink to="/product?index=2" class="btn-slide-down w-full md:w-auto h-12 rounded-lg relative overflow-hidden border-2 border-[#FFCD05] text-[#FFCD05] transition-colors max-w-[220px] flex items-center justify-center">
-              <span class="relative z-10 font-medium">Technical Data Sheet </span>
+              <span class="relative z-10 font-medium">Technical Data Sheet</span>
             </NuxtLink>
           </div>
         </div>
@@ -48,18 +46,18 @@
         <!-- Card 3 -->
         <div
           ref="card3"
-          class="absolute w-[90%] md:w-[85.5%] h-[76.5vh] rounded-[20px] shadow-2xl flex flex-col md:flex-row items-stretch overflow-hidden"
+          class="card-stack absolute w-[90%] md:w-[85.5%] h-[76.5vh] rounded-[20px] shadow-2xl flex flex-col md:flex-row items-stretch overflow-hidden"
           style="top: 60px; z-index: 4;"
         >
           <div class="card-image w-full md:w-3/5 overflow-hidden rounded-t-[16px] md:rounded-tl-[20px] md:rounded-bl-[20px] md:rounded-tr-[0px] md:rounded-br-[0px]">
-            <img src="/Hdchem.jpg" alt="Product 3" class="w-full h-full object-cover filter grayscale" />
+            <img src="/Hdchem.webp" alt="Product 3" class="w-full h-full object-cover filter grayscale" />
           </div>
 
           <div class="w-full md:w-2/5 p-8 flex flex-col justify-center gap-4 card-content">
             <h2 class="text-3xl md:text-4xl font-[Montserrat] text-[#848484] uppercase">HDCHEM 4760</h2>
-            <p class="text-base md:text-lg text-[#848484] font-[Montserrat]">HDCHEM 4760 – Specialized PE copolymer compound for blow molding applications. This polymer matarials belong and good melt strength, balanced mechanical properties, and superior processability for industrial and consumer parts.</p>
+            <p class="text-base md:text-lg text-[#848484] font-[Montserrat]">HDCHEM 4760 – Specialized PE copolymer compound for blow molding applications. This polymer materials belong and good melt strength, balanced mechanical properties, and superior processability for industrial and consumer parts.</p>
             <NuxtLink to="/product?index=4" class="btn-slide-down w-full md:w-auto h-12 rounded-lg relative overflow-hidden border-2 border-[#FFCD05] text-[#FFCD05] transition-colors max-w-[220px] flex items-center justify-center">
-              <span class="relative z-10 font-medium">Technical Data Sheet </span>
+              <span class="relative z-10 font-medium">Technical Data Sheet</span>
             </NuxtLink>
           </div>
         </div>
@@ -67,18 +65,18 @@
         <!-- Card 4 -->
         <div
           ref="card4"
-          class="absolute w-[90%] md:w-[85.5%] h-[76.5vh] rounded-[20px] shadow-2xl flex flex-col md:flex-row items-stretch overflow-hidden"
+          class="card-stack absolute w-[90%] md:w-[85.5%] h-[76.5vh] rounded-[20px] shadow-2xl flex flex-col md:flex-row items-stretch overflow-hidden"
           style="top: 90px; z-index: 5;"
         >
           <div class="card-image w-full md:w-3/5 overflow-hidden rounded-t-[16px] md:rounded-tl-[20px] md:rounded-bl-[20px] md:rounded-tr-[0px] md:rounded-br-[0px] bg-white-100">
-            <img src="/slimchem.jpg" alt="Product 4" class="w-full h-full object-cover filter grayscale" />
+            <img src="/slimchem.webp" alt="Product 4" class="w-full h-full object-cover filter grayscale" />
           </div>
 
           <div class="w-full md:w-2/5 p-8 flex flex-col justify-center gap-4 card-content">
             <h2 class="text-3xl md:text-4xl font-[Montserrat] text-[#848484]">SlipChem-E 178</h2>
             <p class="text-base md:text-lg text-[#848484] font-[Montserrat]">SlipChem-E 178 – Premium slip masterbatch in PE carrier. Significantly lowers COF with excellent dispersion, high thermal stability, and consistent migration for film winding and packaging.</p>
             <NuxtLink to="/product?index=3" class="btn-slide-down w-full md:w-auto h-12 rounded-lg relative overflow-hidden border-2 border-[#FFCD05] text-[#FFCD05] transition-colors max-w-[220px] flex items-center justify-center">
-              <span class="relative z-10 font-medium">Technical Data Sheet </span>
+              <span class="relative z-10 font-medium">Technical Data Sheet</span>
             </NuxtLink>
           </div>
         </div>
@@ -86,18 +84,18 @@
         <!-- Card 5 -->
         <div
           ref="card5"
-          class="absolute w-[90%] md:w-[85.5%] h-[76.5vh] rounded-[20px] shadow-2xl flex flex-col md:flex-row items-stretch overflow-hidden"
+          class="card-stack absolute w-[90%] md:w-[85.5%] h-[76.5vh] rounded-[20px] shadow-2xl flex flex-col md:flex-row items-stretch overflow-hidden"
           style="top: 120px; z-index: 6;"
         >
           <div class="card-image w-full md:w-3/5 overflow-hidden rounded-t-[16px] md:rounded-tl-[20px] md:rounded-bl-[20px] md:rounded-tr-[0px] md:rounded-br-[0px]">
-            <img src="/RAFCOLOR.jpg" alt="Product 5" class="w-full h-full object-cove filter grayscale" />
+            <img src="/RAFCOLOR.webp" alt="Product 5" class="w-full h-full object-cover filter grayscale" />
           </div>
 
           <div class="w-full md:w-2/5 p-8 flex flex-col justify-center gap-4 card-content">
             <h2 class="text-3xl md:text-4xl font-[Montserrat] text-[#848484]">RAFCOLOR 1560</h2>
             <p class="text-base md:text-lg text-[#848484] font-[Montserrat]">RAFCOLOR is a high-quality white masterbatch containing a high loading of rutile titanium dioxide (TiO₂) and thermoplastic polypropylene resin. The selected TiO₂ offers excellent opacity and dispersion properties.</p>
             <NuxtLink to="/product?index=5" class="btn-slide-down w-full md:w-auto h-12 rounded-lg relative overflow-hidden border-2 border-[#FFCD05] text-[#FFCD05] transition-colors max-w-[220px] flex items-center justify-center">
-              <span class="relative z-10 font-medium">Technical Data Sheet </span>
+              <span class="relative z-10 font-medium">Technical Data Sheet</span>
             </NuxtLink>
           </div>
         </div>
@@ -107,12 +105,11 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
+gsap.registerPlugin(ScrollTrigger)
 
 const cardsContainer = ref(null)
 const card1 = ref(null)
@@ -121,128 +118,138 @@ const card3 = ref(null)
 const card4 = ref(null)
 const card5 = ref(null)
 
-let tl = null
+let mainTimeline = null
+let scrollTriggerInstance = null
 
 onMounted(() => {
-  const savedScrollPosition = sessionStorage.getItem('homeScrollPosition')
-  
+  // پاک کردن تمام ScrollTrigger های قبلی
   ScrollTrigger.getAll().forEach(trigger => trigger.kill())
   
-  tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: cardsContainer.value,
-      pin: true,
-      pinSpacing: true,
-      markers: false,
-      start: 'top-=50px top',
-      end: '+=3800',
-      scrub: 0.8,
-      fastScrollEnd: true,
-      onUpdate: (self) => {
-        sessionStorage.setItem('homeScrollPosition', window.scrollY)
-      }
+  // تنظیمات بهینه برای عملکرد روان
+  gsap.config({
+    force3D: true,
+    nullTargetWarn: false
+  })
+
+  const cards = [card1.value, card2.value, card3.value, card4.value, card5.value]
+  
+  // تنظیم اولیه کارت‌ها
+  gsap.set(cards, {
+    willChange: 'transform, opacity',
+    force3D: true
+  })
+
+  mainTimeline = gsap.timeline({
+    defaults: {
+      ease: 'none',
+      duration: 1
+    }
+  })
+
+  // انیمیشن کارت اول (فقط fade in)
+  mainTimeline.fromTo(card1.value, 
+    { opacity: 0, y: 50 },
+    { opacity: 1, y: 0, duration: 0.5 }
+  )
+
+  // کارت دوم ظاهر می‌شود
+  mainTimeline.fromTo(card2.value,
+    { yPercent: 100, opacity: 0 },
+    { yPercent: 0, opacity: 1, duration: 1 },
+    '+=0.3'
+  )
+  
+  // کارت اول عقب می‌رود
+  mainTimeline.to(card1.value,
+    { scale: 0.95, yPercent: -2, opacity: 0.7, duration: 1 },
+    '<'
+  )
+
+  // کارت سوم ظاهر می‌شود
+  mainTimeline.fromTo(card3.value,
+    { yPercent: 100, opacity: 0 },
+    { yPercent: 0, opacity: 1, duration: 1 },
+    '+=0.3'
+  )
+  
+  // کارت‌های قبلی عقب می‌روند
+  mainTimeline.to([card1.value, card2.value],
+    { 
+      scale: (i) => 0.93 - (i * 0.02),
+      yPercent: (i) => -4 + (i * 2),
+      opacity: (i) => 0.6 + (i * 0.1),
+      duration: 1 
     },
+    '<'
+  )
+
+  // کارت چهارم ظاهر می‌شود
+  mainTimeline.fromTo(card4.value,
+    { yPercent: 100, opacity: 0 },
+    { yPercent: 0, opacity: 1, duration: 1 },
+    '+=0.3'
+  )
+  
+  mainTimeline.to([card1.value, card2.value, card3.value],
+    { 
+      scale: (i) => 0.91 - (i * 0.02),
+      yPercent: (i) => -6 + (i * 2),
+      opacity: (i) => 0.5 + (i * 0.1),
+      duration: 1 
+    },
+    '<'
+  )
+
+  // کارت پنجم ظاهر می‌شود
+  mainTimeline.fromTo(card5.value,
+    { yPercent: 100, opacity: 0 },
+    { yPercent: 0, opacity: 1, duration: 1 },
+    '+=0.3'
+  )
+  
+  mainTimeline.to([card1.value, card2.value, card3.value, card4.value],
+    { 
+      scale: (i) => 0.89 - (i * 0.02),
+      yPercent: (i) => -8 + (i * 2),
+      opacity: (i) => 0.4 + (i * 0.1),
+      duration: 1 
+    },
+    '<'
+  )
+
+  // ایجاد ScrollTrigger با تنظیمات بهینه
+  scrollTriggerInstance = ScrollTrigger.create({
+    trigger: cardsContainer.value,
+    start: 'top top',
+    end: '+=4000',
+    pin: true,
+    scrub: 1.2,
+    anticipatePin: 1,
+    invalidateOnRefresh: true,
+    animation: mainTimeline
   })
 
-  tl.addLabel('card1')
-  tl.to(card1.value, {
-    yPercent: 0,
-    opacity: 1,
-    duration: 0.6,
-    ease: 'power2.out',
-  })
-
-  tl.from(card2.value, {
-    yPercent: 75,
-    opacity: 0,
-    duration: 0.8,
-    ease: 'power2.out',
-  }, '+=0.1')
-
-  tl.to([card1.value, card2.value], {
-    scale: (index) => index === 0 ? 0.925 : 1,
-    yPercent: (index) => index === 0 ? -0.75 : 0,
-    opacity: (index) => index === 0 ? 0.85 : 1,
-    duration: 0.8,
-    ease: 'power2.inOut',
-  }, '-=0.2')
-
-  tl.from(card3.value, {
-    yPercent: 75,
-    opacity: 0,
-    duration: 0.8,
-    ease: 'power2.out',
-  }, '+=0.1')
-
-  tl.to([card2.value, card3.value], {
-    scale: (index) => index === 0 ? 0.95 : 1,
-    yPercent: (index) => index === 0 ? -0.5 : 0,
-    opacity: (index) => index === 0 ? 0.85 : 1,
-    duration: 0.8,
-    ease: 'power2.inOut',
-  }, '-=0.2')
-
-  tl.from(card4.value, {
-    yPercent: 75,
-    opacity: 0,
-    duration: 0.8,
-    ease: 'power2.out',
-  }, '+=0.1')
-
-  tl.to([card3.value, card4.value], {
-    scale: (index) => index === 0 ? 0.975 : 1,
-    yPercent: (index) => index === 0 ? -0.4 : 0,
-    opacity: (index) => index === 0 ? 0.85 : 1,
-    duration: 0.8,
-    ease: 'power2.inOut',
-  }, '-=0.2')
-
-  tl.from(card5.value, {
-    yPercent: 75,
-    opacity: 0,
-    duration: 0.8,
-    ease: 'power2.out',
-  }, '+=0.1')
-
-  tl.to([card4.value, card5.value], {
-    scale: (index) => index === 0 ? 0.9875 : 1,
-    yPercent: (index) => index === 0 ? -0.3 : 0,
-    opacity: (index) => index === 0 ? 0.85 : 1,
-    duration: 0.8,
-    ease: 'power2.inOut',
-  }, '-=0.2')
-
-  tl.to([card1.value, card2.value, card3.value, card4.value], {
-    scale: (index) => 0.9 + index * 0.025,
-    yPercent: (index) => -(1.5 - index * 0.375),
-    opacity: 0.7,
-    duration: 1,
-    ease: 'power2.inOut',
-  }, '-=0.2')
-
-  if (savedScrollPosition !== null) {
-    requestAnimationFrame(() => {
-      window.scrollTo(0, parseInt(savedScrollPosition))
-    })
-  }
-})
-
-onBeforeUnmount(() => {
-  sessionStorage.setItem('homeScrollPosition', window.scrollY)
+  // Smooth scrolling برای مرورگرها
+  ScrollTrigger.normalizeScroll(true)
 })
 
 onUnmounted(() => {
-  if (tl && tl.scrollTrigger) {
-    tl.scrollTrigger.kill()
+  if (scrollTriggerInstance) {
+    scrollTriggerInstance.kill()
   }
-  if (tl) {
-    tl.kill()
+  if (mainTimeline) {
+    mainTimeline.kill()
   }
+  ScrollTrigger.getAll().forEach(trigger => trigger.kill())
 })
 </script>
 
 <style scoped>
-/* اطمینان از سفید بودن پس‌زمینه‌ی ورودی‌ها (حتی در حالت autofill مرورگر) */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 input {
   background-color: #ffffff !important;
 }
@@ -255,6 +262,13 @@ input:-webkit-autofill:focus {
   -webkit-text-fill-color: #111111 !important;
   caret-color: #111111;
   transition: background-color 5000s ease-in-out 0s;
+}
+
+.card-stack {
+  will-change: transform, opacity;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 .btn-slide-down {
@@ -321,29 +335,6 @@ input:-webkit-autofill:focus {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
-
-  .rounded-tl-\[20px\], .rounded-bl-\[20px\], .rounded-tr-\[20px\], .rounded-br-\[20px\] {
-    border-radius: 20px;
-  }
-}
-
-.slider {
-  transition: all 0.6s ease-in-out;
-}
-
-.slider.scroll-active {
-  animation: slideInUp 0.6s ease-in-out;
-}
-
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .card-image {
@@ -353,17 +344,7 @@ input:-webkit-autofill:focus {
 .card-image > img {
   display: block;
   background-color: #ffffff !important;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-}
-
-[ref="card1"],
-[ref="card2"],
-[ref="card3"],
-[ref="card4"],
-[ref="card5"] {
-  will-change: transform, opacity;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
+  transform: translate3d(0, 0, 0);
 }
 </style>
