@@ -44,7 +44,7 @@
       <!-- Right Content -->
       <div class="right ml-[590px] mr-5">
         <h1 class="pt-[15px] text-[1.2rem] text-[#FFCD05] font-bold">
-          POLYCHEM at Tabriz Plast 2025
+          President of East Azerbaijan IMT Organization Visits POLYCHEM at Tabriz Plast 2025
         </h1>
 
     
@@ -53,12 +53,7 @@
         <div class="separator mt-2.5 border-t border-[#C3C3C3]"></div>
 
         <!-- Description -->
-        <p class="pt-2.5  text-[0.95rem] leading-[150%] text-black">POLYCHEM participated in the 22nd International Specialized Exhibition of Rubber, Plastics and Machinery (Tabriz Plast 2025) 
-         <br> Booth Information:
-<br> Venue: Tabriz International Exhibition Center
-<br> Hall: Shahriar
-<br> Booth No.: 21
-<br>
+        <p class="pt-2.5  text-[0.95rem] leading-[150%] text-black">Engineer Parnian, the esteemed President of the East Azerbaijan Province's Industry, Mine, and Trade Organization (SAMT), paid a visit to the POLYCHEM booth during the Tabriz Plast 2025 Exhibition. This prestigious event, held in Tabriz, showcased the latest innovations in the plastics and polymer industry, attracting industry leaders and experts from across the region.
         </p>
         
         <!-- Read More Button -->
@@ -69,7 +64,7 @@
 
       <!-- Date (Inside Card) -->
       <h5 class="absolute left-[30px] bottom-[30px] text-[6rem] text-[#C3C3C3] leading-none">
-        16
+        17
       </h5>
       <h6 class="absolute left-[30px] bottom-[10px] text-[2rem] text-[#C3C3C3] leading-none">
         December
@@ -136,13 +131,10 @@ import Navbar from '~/components/navbar.vue'
 
 // Slider images (add or adjust paths as needed)
 const images = [
-'/Tabriz-Plast-2025-2.webp',
-'/Tabriz-Plast-2025-3.webp',
-'/Tabriz-Plast-2025-4.webp',
-'/Tabriz-Plast-2025-5.webp',
-'/Tabriz-Plast-2025-6.webp',
-'/Tabriz-Plast-2025-7.webp',
-'/Tabriz-Plast-2025-8.webp'
+'/Visit-tabriz-3.webp',
+'/Visit-tabriz-1.webp',
+'/Visit-tabriz-2.webp'
+
 
 ]
 const activeIndex = ref(0)

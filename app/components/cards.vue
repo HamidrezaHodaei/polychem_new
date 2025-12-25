@@ -41,10 +41,17 @@ const backgroundImages = [
   '/Hdchem.webp',
   '/PolypropyleneandPolypropyleneCompositesMarketzz.jpg',
   '/IMG_0326.jpg',
-  '/high-angle-plastic-bottles-arrangement2.jpg'
+  '/Visit-tabriz-3.webp'
 ]
 
 const cards = ref([
+{
+    badge: 'News',
+    title: 'President of East Azerbaijan IMT Organization Visits POLYCHEM at Tabriz Plast 2025',
+    date: 'Dec 17, 2025',
+    link: '/news/Official-Visit-Engineer-Parnian-Tabriz-Plast-2025',
+    image: backgroundImages[5]
+  }, 
 {
     badge: 'Event',
     title: 'POLYCHEM participated in the 22nd International Specialized Exhibition of Tabriz Plast 2025',
@@ -79,14 +86,6 @@ const cards = ref([
     date: 'Nov 1, 2025',
     link: '/news/Global-Polypropylene-and-Composites-Market-Report-2032',
     image: backgroundImages[3]
-  },
-
-  {
-    badge: 'News',
-    title: 'Rising Polypropylene Prices Increase Production Costs by Up to 40%',
-    date: 'Oct 27, 2025',
-    link: '/news/Rising-Polypropylene-Prices',
-    image: backgroundImages[5]
   }
 ])
 

@@ -149,13 +149,14 @@
             class="absolute inset-0 flex items-center justify-center p-20 opacity-0"
           >
             <div class="text-center space-y-6">
-              <!-- changed: show preview product image instead of static icon -->
+               <!-- changed: show preview product image instead of static icon -->
               <img
                 ref="previewImage"
-                :src="hoveredItem?.image || ''"
-                alt=""
+                :src="hoveredItem?.image || '/Roto.webp'"
+                alt="preview"
                 class="w-1500 h-1500   object-cover transform scale-0"
                 :style="previewImageStyle"
+                
               />
             
               <!-- backdrop behind title & description (bigger, semi-transparent) -->
@@ -165,7 +166,7 @@
                   class="opacity-0 transform translate-y-4"
                   :style="previewTitleStyle"
                 >
-                  <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">{{ hoveredItem?.title }}</h3>
+                  <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">{{ hoveredItem?.title || 'ROTOCHEM 0955W' }}</h3>
                   <p class="text-xl text-gray-600">{{ hoveredItem?.code || '' }}</p>
                 </div>
                 <p 
@@ -173,7 +174,7 @@
                   class="text-gray-700 text-lg max-w-md mx-auto opacity-0 transform translate-y-4 mt-3"
                   :style="previewDescStyle"
                 >
-                  {{ hoveredItem?.description || '' }}
+                  {{ hoveredItem?.description || 'Specialized white color plastic compound for rotational molding applications. Linear medium density polyethylene copolymer with narrow molecular weight distribution and TiO2. Ideal for reliable and durable materials that withstand harsh environmental conditions.' }}
                 </p>
               </div>
             </div>
@@ -427,6 +428,8 @@ const toggleFullscreenMenu = async () => {
     // make the DOM visible first, then run animations
     isMenuOpen.value = true
     await nextTick()
+    // set initial preview to the first product so image/text offsets match
+    try { hoveredItem.value = useCases[0] } catch (e) {}
     openMenu()
   }
 }

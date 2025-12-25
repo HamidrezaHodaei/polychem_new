@@ -215,7 +215,7 @@
 </template>
 
 <script setup>
-import { ref, nextTick, onMounted, watch } from 'vue';
+import { ref, nextTick, onMounted, onUnmounted, watch } from 'vue';
 
 const route = useRoute();
 const containerRef = ref(null);
@@ -870,6 +870,142 @@ onMounted(() => {
       onVideoLoaded();
     }
   });
+});
+
+// Smooth wheel handler (rewritten):
+// - Uses velocity-based inertia for both horizontal container scrolling and
+//   vertical product internal scrolling.
+// - Handles `deltaMode` normalization to reduce jitter across devices.
+// - Adds/cleans listeners with non-passive option to allow preventDefault when needed.
+
+let hAnim = null; // horizontal animation frame
+let vAnim = null; // vertical animation frame
+let hVel = 0; // horizontal velocity (px/frame approximate)
+let vVel = 0; // vertical velocity for the active product
+const MAX_VEL = 4000; // clamp velocity to avoid huge jumps
+const FRICTION = 0.92; // per-frame velocity decay (0-1)
+
+const normalizeDelta = (e) => {
+  // Convert deltaMode to pixels: 0=pixel,1=line,2=page
+  const LINE_HEIGHT = 16;
+  if (e.deltaMode === 1) return e.deltaY * LINE_HEIGHT;
+  if (e.deltaMode === 2) return e.deltaY * window.innerHeight;
+  return e.deltaY;
+};
+
+const startHorizontalAnim = () => {
+  if (hAnim) return; // already running
+  let last = performance.now();
+  const step = (now) => {
+    const dt = Math.max(1, now - last);
+    last = now;
+    if (!containerRef.value) {
+      hVel = 0;
+      cancelAnimationFrame(hAnim);
+      hAnim = null;
+      return;
+    }
+
+    // Apply velocity scaled by time to produce consistent feeling
+    const delta = hVel * (dt / 16.666);
+    containerRef.value.scrollLeft = Math.max(0, Math.min(containerRef.value.scrollLeft + delta, containerRef.value.scrollWidth - containerRef.value.clientWidth));
+
+    // Apply friction
+    hVel *= FRICTION;
+
+    // Stop condition: when velocity is very small
+    if (Math.abs(hVel) < 0.5) {
+      hVel = 0;
+      cancelAnimationFrame(hAnim);
+      hAnim = null;
+      return;
+    }
+
+    hAnim = requestAnimationFrame(step);
+  };
+  hAnim = requestAnimationFrame(step);
+};
+
+const startVerticalAnim = (el) => {
+  if (vAnim) return; // one vertical anim at a time
+  let last = performance.now();
+  const step = (now) => {
+    const dt = Math.max(1, now - last);
+    last = now;
+    if (!el) {
+      vVel = 0;
+      cancelAnimationFrame(vAnim);
+      vAnim = null;
+      return;
+    }
+
+    const delta = vVel * (dt / 16.666);
+    el.scrollTop = Math.max(0, Math.min(el.scrollTop + delta, el.scrollHeight - el.clientHeight));
+
+    vVel *= FRICTION;
+    if (Math.abs(vVel) < 0.5) {
+      vVel = 0;
+      cancelAnimationFrame(vAnim);
+      vAnim = null;
+      return;
+    }
+
+    vAnim = requestAnimationFrame(step);
+  };
+  vAnim = requestAnimationFrame(step);
+};
+
+const onWheelImproved = (e) => {
+  if (process.server || !containerRef.value) return;
+
+  const deltaY = normalizeDelta(e);
+
+  // If a product is active, convert wheel to vertical product scroll (with inertia)
+  if (activeProductIndex.value !== null) {
+    const productEl = containerRef.value.querySelector(`[data-index="${activeProductIndex.value}"]`);
+    if (!productEl) return;
+
+    // If the user gestures mostly horizontally, let the container handle it naturally
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+
+    // We will handle vertical scroll inside product; prevent default to avoid outer scroll
+    e.preventDefault();
+
+    // Add to vertical velocity
+    vVel += deltaY * 0.9;
+    vVel = Math.max(-MAX_VEL, Math.min(MAX_VEL, vVel));
+
+    // Start animation if not running
+    startVerticalAnim(productEl);
+    return;
+  }
+
+  // No active detail: translate vertical wheel into horizontal container scroll
+  // Only intercept when the container can scroll horizontally
+  const canScrollHorizontally = containerRef.value.scrollWidth > containerRef.value.clientWidth + 1;
+  if (!canScrollHorizontally) return;
+
+  // Prevent page vertical scrolling and use wheel for horizontal navigation
+  e.preventDefault();
+
+  // Add to horizontal velocity (positive deltaY should move right)
+  hVel += deltaY * 0.9;
+  hVel = Math.max(-MAX_VEL, Math.min(MAX_VEL, hVel));
+
+  startHorizontalAnim();
+};
+
+onMounted(() => {
+  if (containerRef.value) {
+    containerRef.value.addEventListener('wheel', onWheelImproved, { passive: false });
+    try { containerRef.value.style.overscrollBehavior = 'contain'; } catch (err) {}
+  }
+});
+
+onUnmounted(() => {
+  if (containerRef.value) containerRef.value.removeEventListener('wheel', onWheelImproved);
+  if (hAnim) { cancelAnimationFrame(hAnim); hAnim = null; }
+  if (vAnim) { cancelAnimationFrame(vAnim); vAnim = null; }
 });
 
 // اضافه کردن/جایگزینی تابع باز کردن تب جدید (اکنون با favicon دلخواه و iframe)

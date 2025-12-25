@@ -124,6 +124,7 @@ const activeTab = ref(0)
 const currentImageIndex = ref(0)
 
 const backgroundImages = [
+'/Visit-tabriz-3.webp',
 '/Tabriz-Plast-2025-1.webp',  
 '/plast-2.jpg',
   '/Visit-of-the-CEO-of-Bank-of-Industry.png',
@@ -135,7 +136,14 @@ const backgroundImages = [
 ]
 
 const posts = [
-  {
+{
+    date: 'Dec 17, 2025',
+    title: 'President of East Azerbaijan IMT Organization Visits POLYCHEM at Tabriz Plast 2025',
+    excerpt: 'Engineer Parnian, the esteemed President of the East Azerbaijan Province\'s Industry, Mine, and Trade Organization (SAMT), paid a visit to the POLYCHEM booth during the Tabriz Plast 2025 Exhibition. ',
+    tag: 'News',
+    link: '/news/Official-Visit-Engineer-Parnian-Tabriz-Plast-2025'
+  },  
+{
     date: 'Dec 16-19, 2025',
     title: 'POLYCHEM at Tabriz Plast 2025',
     excerpt: 'POLYCHEM participated in the 22nd International Specialized Exhibition of Rubber, Plastics and Machinery (Tabriz Plast 2025).',

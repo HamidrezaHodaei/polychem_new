@@ -20,7 +20,7 @@ html, body, #__nuxt {
 <script setup>
 useHead({
   link: [
-    { rel: 'icon', type: 'image/png', href: '/favicon.png' }
+    { rel: 'icon', type: 'image/png', href: '/favicon.ico' }
   ]
 })
 </script>
