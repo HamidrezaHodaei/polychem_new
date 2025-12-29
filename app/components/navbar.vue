@@ -12,7 +12,7 @@
 
           <!-- USE CASES with border and hover effect -->
           <!-- show PRODUCTS button on desktop only (hidden on mobile) -->
-          <div class="hidden md:flex items-center h-full md:border-r md:border-white">
+          <div v-if="!isProductPage" class="hidden md:flex items-center h-full md:border-r md:border-white">
             <button 
               @click="toggleFullscreenMenu"
               class="nav-link flex items-center gap-2 text-[13px] text-white font-medium px-8 h-full text-white relative overflow-hidden"
@@ -75,6 +75,7 @@
 
           <!-- Mobile Menu Button (REPLACED): show PRODUCTS as the right-most item on mobile -->
           <button 
+            v-if="!isProductPage"
             @click="toggleFullscreenMenu"
             class="md:hidden ml-auto text-white hover:text-yellow-400 px-4 py-3 rounded-lg hover:bg-black/20 transition-all duration-200 flex items-center gap-2"
             aria-label="Open products"
@@ -92,6 +93,7 @@
           <div v-if="mobileMenuOpen" class="md:hidden pb-4 bg-[#808285] max-h-[calc(100vh-64px)] overflow-y-auto">
             <div class="flex flex-col gap-2 pt-4 px-4">
               <button 
+                v-if="!isProductPage"
                 @click="toggleFullscreenMenu"
                 class="nav-link-mobile text-[13px] font-medium text-white hover:text-gray-200 py-3 px-4 rounded relative overflow-hidden text-left w-full"
                 :class="{ active: isMenuOpen }"
@@ -267,6 +269,13 @@ const isMenuOpen = ref(false)
 const hoveredItem = ref(null)
 const route = useRoute()
 const router = useRouter()
+const isProductPage = computed(() => {
+  try {
+    return route.path.startsWith('/Product_polychem')
+  } catch (e) {
+    return false
+  }
+})
 // handlers for wheel/touch to prevent background scrolling
 const wheelHandler = (e) => {
   // allow the event to scroll the itemsWrapper but stop it bubbling to body
