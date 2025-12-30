@@ -19,6 +19,8 @@ export default defineNuxtConfig({
         extend: {
           fontFamily: {
             sans: ['Montserrat', 'system-ui'],
+            serif: ['Montserrat', 'system-ui'],
+            mono: ['Montserrat', 'system-ui'],
           },
         },
       },

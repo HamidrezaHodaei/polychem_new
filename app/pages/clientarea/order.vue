@@ -1,9 +1,6 @@
 <template>
-  <div class="flex-1 overflow-y-auto custom-scrollbar p-6">
-    <div class="mb-6">
-      <h2 class="text-3xl font-bold text-gray-900 mb-2">My Orders</h2>
-      <p class="text-sm text-gray-600">View and edit all your pending, delivered and returned orders here.</p>
-    </div>
+  <div class="flex-1 overflow-y-auto custom-scrollbar">
+    
 
     <div class="space-y-4 pb-6">
       <div v-for="order in orders" :key="order.id" 
@@ -29,7 +26,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
               </svg>
             </div>
-
+            
             <div class="flex-1">
               <h4 class="text-base font-bold text-gray-900 mb-1">{{ item.name }}</h4>
               <p class="text-xs text-gray-600 mb-2">By {{ item.designer }}</p>
@@ -68,7 +65,7 @@
 
 <script>
 export default {
-  name: 'ClientOrders',
+  name: 'OrdersPage',
   data() {
     return {
       orders: [
@@ -149,10 +146,6 @@ export default {
 </script>
 
 <style scoped>
-* {
-  box-sizing: border-box;
-}
-
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
 }

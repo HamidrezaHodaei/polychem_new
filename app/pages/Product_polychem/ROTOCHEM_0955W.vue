@@ -3,45 +3,26 @@
     <navbar />
     <div class="landing-page">
       <div class="main-container">
-        <!-- Sidebar Menu - Sticky for all sections (pinned, starts at ADVANTAGE) -->
-        <div class="sidebar" ref="sidebar" v-show="showSidebar">
-          <div class="sidebar-title">ROTOCHEM 0955W</div>
-          <div class="menu-container">
-            <div class="timeline-bar" :style="{ top: timelinePosition + 'px' }"></div>
-            <nav class="menu">
-              <a 
-                v-for="(item, index) in menuItems" 
-                :key="index"
-                :href="'#' + item.id"
-                :ref="el => { if (el) menuItemEls[index] = el }"
-                :class="['menu-item', { active: activeSection === item.id }]"
-                @click="scrollToSection(item.id, $event)"
-              >
-                {{ item.label }}
-                <span class="menu-number">{{ item.number }}</span>
-              </a>
-            </nav>
-          </div>
-        </div>
+        <!-- Sidebar removed per request -->
 
         <!-- Main Content Area -->
-        <div class="main-content" @scroll="handleScroll" ref="mainContent">
+        <div class="main-content" ref="mainContent">
           <!-- Team Awareness Section -->
           <section class="hero-content" ref="heroSection">
             <div class="hero-inner">
-              <div class="hero-left">
-                <div class="tag">Masterbatch</div>
+              <div class="hero-left ">
+                <div class="tag  ">Masterbatch</div>
                 <h1 class="title">ROTOCHEM 0955W</h1>
                 <p class="description text-justify">
                   Rotochem 0955W is a specialized white color plastic compound designed for rotational molding applications. It is a compound of linear medium density polyethylene copolymer grade with a narrow molecular weight distribution with Tio2 that possesses a range of beneficial characteristics. Rotochem is an ideal choice for manufacturers who require a reliable and durable material that can withstand harsh environmental conditions. Whether utilized in industrial or consumer applications, this plastic material is a suitable choice for those seeking consistent and stable materials.
                 </p>
                 <a
-                  href="#"
-                  class="btn-slide-down w-full lg:w-auto h-12 rounded-lg relative overflow-hidden border-2 border-[#FFCD05] text-[#FFCD05] transition-colors px-5 py-3 text-lg font-medium tracking-widest flex items-center justify-center"
-                  @click.prevent="openPdf('/0966W EN.pdf')"
-                >
-                  <span>Download Data Sheet</span>
-                </a>
+                 href="#"
+  class="btn-slide-down w-full lg:w-auto h-16 text-center rounded-lg relative overflow-hidden border-2 border-[#FFCD05] text-[#FFCD05] transition-colors px-5 py-2 text-lg font-medium tracking-widest ml-0 lg:ml-4 mt-4 lg:mt-0 flex items-center justify-center"
+  @click.prevent="openPdf('/0966W EN.pdf')"
+>
+  <span class="relative z-10">Download Data Sheet</span>
+</a>
               </div>
 
               <div class="hero-right">
@@ -51,114 +32,89 @@
               </div>
             </div>
 
-            <!-- ADVANTAGE Details -->
+            <!-- TECHNICAL_SPECIFICATIONS Section -->
+<section id="TECHNICAL_SPECIFICATIONS" class="content-block">
+  <div class="technical-specs">
+    <h3 class="section-title-1 text-[#FFCD05]">TECHNICAL SPECIFICATIONS</h3>
+
+    <div class="table-wrapper">
+      <table class="specs-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Test Method</th>
+            <th>Unit</th>
+            <th>Typical Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(spec, idx) in specsData" :key="idx">
+            <td>{{ spec.property }}</td>
+            <td>{{ spec.testMethod }}</td>
+            <td>{{ spec.unit }}</td>
+            <td>{{ spec.typicalValue }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+          <!-- ADVANTAGE Details -->
             <div id="ADVANTAGE" class="details-section">
               <div class="details-content">
                 <div class="details-left">
                 <h2 class="section-title">ADVANTAGE</h2>
-                <div class="card-container">
-                  <div class="info-card purple">
-                    <h3 class="card-title">Human Errors</h3>
-                    <p class="card-description">
-                      83% of data breaches involve human errors, underscoring the necessity of proper employee training.
-                    </p>
-                    <div class="card-source">Verizon 2024</div>
-                  </div>
-                </div>
+                
 
                 <div class="question-block">
-                  <h3 class="question-title">What level of cybersecurity education do your employees have?</h3>
+                  
                   <p class="question-text">
-                    Eighty percent of data leaks originate internally. A Gartner study revealed that 74% of employees would 
-                    violate cybersecurity rules to meet business objectives or help team members. This internal risk highlights 
-                    the need for continuous employee training and awareness.
-                  </p>
-                  <p class="question-text">
-                    Vigilance decreases over time, so regular testing and reinforcement are essential. One-time training and 
-                    unclear messaging lead to confusion and inconsistency in security practices.
-                  </p>
-                  <p class="question-text">
-                    Companies should adopt an approach that includes engaging, interactive training, clear communication, 
-                    and ongoing support. This ensures employees remain aware and aligned with cybersecurity protocols.
-                  </p>
+Rotochem exhibit a number of advantageous features, including excellent dispersion, exceptional impact strength, superior internal and external surface finish, optimal whiteness, reliable resistance to stress cracking, and efficient UV stabilization.                  </p>
                 </div>
               </div>
 
               <div class="details-right">
-                <div class="sidebar-box">
-                  <h4 class="sidebar-box-title">Common targets</h4>
-                  <ul class="target-list">
-                    <li>Small businesses</li>
-                    <li>Medium businesses</li>
-                    <li>Public administrations</li>
-                    <li>Large enterprises</li>
-                  </ul>
-                </div>
-
+                
                 <div class="sidebar-box">
                   <h4 class="sidebar-box-title">Related Industries</h4>
                   <ul class="industry-list">
-                    <li><span class="arrow">→</span> Financial Services</li>
-                    <li><span class="arrow">→</span> Healthcare</li>
-                    <li><span class="arrow">→</span> Retail and E-commerce</li>
-                    <li><span class="arrow">→</span> Telecommunications</li>
-                    <li><span class="arrow">→</span> Government and Public Sector</li>
-                    <li><span class="arrow">→</span> Energy and Utilities</li>
-                    <li><span class="arrow">→</span> Technology and Software</li>
-                    <li><span class="arrow">→</span> Manufacturing</li>
-                    <li><span class="arrow">→</span> Education</li>
-                    <li><span class="arrow">→</span> Pharmaceuticals and Biotechnology</li>
-                  </ul>
+                    <li><span class="arrow">→</span> Rotational Molding </li>
+                    <li><span class="arrow">→</span> Packaging Industry</li>
+                    <li><span class="arrow">→</span> Automotive and Transportation</li>
+                    <li><span class="arrow">→</span> Consumer Goods</li>
+                    <li><span class="arrow">→</span> Industrial Equipment </li>
+                    <li><span class="arrow">→</span> Construction and Infrastructure</li>
+                    <li><span class="arrow">→</span>Agriculture</li>
+                    <li><span class="arrow">→</span> Medical and Laboratory Equipment</li>
+                      </ul>
                 </div>
 
-                <div class="sidebar-box">
-                  <h4 class="sidebar-box-title">Keywords</h4>
-                  <div class="keyword-tags">
-                    <span class="tag-item">Training</span>
-                    <span class="tag-item">Sensitization</span>
-                    <span class="tag-item">Phishing Awareness</span>
-                    <span class="tag-item">Social engineering</span>
-                    <span class="tag-item">Data protection</span>
-                    <span class="tag-item">Malware Prevention</span>
-                    <span class="tag-item">Password Management</span>
-                  </div>
-                </div>
+                
                 </div>
               </div>
             </div>
           </section>
 
-          <!-- TECHNICAL_SPECIFICATIONS Section -->
-          <section id="TECHNICAL_SPECIFICATIONS" class="content-block">
-            <div class="content-inner">
-              <h2 class="section-title">TECHNICAL SPECIFICATIONS</h2>
-              <p class="section-text">Content for TECHNICAL_SPECIFICATIONS section...</p>
-            </div>
-          </section>
 
           <!-- PACKAGING Section -->
-          <section id="PACKAGING" class="content-block">
+          <section id="PACKAGING" class="content-block-packaging">
             <div class="content-inner">
               <h2 class="section-title">PACKAGING</h2>
-              <p class="section-text">Content for PACKAGING section...</p>
+              <p class="section-text-packaging">Rotochem is supplied in powder form packed in 20 kg bags.</p>
             </div>
           </section>
 
           <!-- STORAGE_AND_HANDLING Section -->
-          <section id="STORAGE_AND_HANDLING" class="content-block">
+          <section id="STORAGE_AND_HANDLING" class="content-block-STORAGE">
             <div class="content-inner">
               <h2 class="section-title">STORAGE AND HANDLING</h2>
-              <p class="section-text">Content for STORAGE_AND_HANDLING section...</p>
+              <p class="section-text-STORAGE">Rotochem should be stored to prevent direct sunlight and/or heat exposure. The storage area should also be dry and preferably not exceed 50°C; Bad storage conditions may lead to quality deterioration and product performance. It is advisable to process Rotochem within 18 months after delivery.</p>
             </div>
           </section>
 
-          <!-- Our Offers Section -->
-          <section id="our-offers" class="content-block">
-            <div class="content-inner">
-              <h2 class="section-title">Our offers</h2>
-              <p class="section-text">Content for Our offers section...</p>
-            </div>
-          </section>
+          <Footer1 />
         </div>
       </div>
     </div>
@@ -167,11 +123,13 @@
 
 <script>
 import Navbar from "~/components/navbar.vue"
+import Footer1 from "~/components/footer.vue"
 
 export default {
   name: 'TeamAwarenessPage',
   components: {
-    Navbar
+    Navbar,
+    Footer1
   },
   data() {
     return {
@@ -183,10 +141,22 @@ export default {
         { id: 'PACKAGING', label: 'PACKAGING', number: '03' },
         { id: 'STORAGE_AND_HANDLING', label: 'STORAGE AND HANDLING', number: '04' },
         { id: 'our-offers', label: 'Our offers', number: '05' }
-      ]
-      ,
+      ],
       menuItemEls: [],
-      showSidebar: false
+      showSidebar: false,
+      specsData: [
+        { property: 'MFI (190°C / 2.16 kg)', testMethod: 'ASTM D1238-7', unit: 'g/10min', typicalValue: '3.5 ± 0.5' },
+        { property: 'Density', testMethod: 'ASTM D1505-68', unit: 'kg/m³', typicalValue: '0.937 – 0.945' },
+        { property: 'Titanium crystal type', testMethod: '-', unit: '-', typicalValue: 'Rutile type' },
+        { property: 'TiO₂ content', testMethod: '-', unit: '%', typicalValue: '2' },
+        { property: 'Moisture content', testMethod: '-', unit: 'ppm', typicalValue: '≤ 1500' },
+        { property: 'Vicat softening point', testMethod: 'ASTM D1525', unit: '°C', typicalValue: '115' },
+        { property: 'Tensile strength @ yield', testMethod: 'ASTM D638 - 72', unit: 'MPa', typicalValue: '15' },
+        { property: 'Elongation @ break', testMethod: 'ASTM D638', unit: '%', typicalValue: '> 700' },
+        { property: 'Flexural modulus', testMethod: 'ASTM D790', unit: 'MPa', typicalValue: '650' },
+        { property: 'Hardness', testMethod: 'ASTM D2240', unit: 'Shore D', typicalValue: '65' },
+        { property: 'ESCR (IGEPAL 10%) (F50, 50°C)', testMethod: 'ASTM D1693', unit: 'HR', typicalValue: '200' }
+      ]
     }
   },
   mounted() {
@@ -337,7 +307,7 @@ export default {
 
 .hero-left {
   flex: 0 0 40%;
-  padding: 60px 80px;
+  padding: 10px 80px 60px 80px;
   border-right: 1px solid #e0e0e0;
   display: flex;
   flex-direction: column;
@@ -391,24 +361,24 @@ export default {
 
 .tag {
   color: #848484;
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 1px;
   margin-bottom: 30px;
   font-weight: 500;
+  
 }
 
 .title {
-  font-size: 72px;
-  font-weight: 300;
+  font-size: 60px;
+  font-weight: 400; 
   line-height: 1.1;
   margin-bottom: 40px;
   letter-spacing: -1px;
   color: #333333;
 }
-
 .description {
   color: #848484;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.7;
   margin-bottom: 40px;
   max-width: 650px;
@@ -630,7 +600,15 @@ export default {
   letter-spacing: -0.5px;
   color: #333333;
 }
-
+.section-title-1 {
+  font-size: 48px;
+  font-weight: 300;
+  margin-bottom: 40px;
+  letter-spacing: -0.5px;
+  color: #FFCD05;
+  padding-left: 40px;
+  padding-top: 40px;
+}
 /* Info Card */
 .card-container {
   margin-bottom: 60px;
@@ -647,18 +625,13 @@ export default {
   color: #333333;
 }
 
-.card-title {
-  font-size: 28px;
-  font-weight: 500;
-  margin-bottom: 20px;
-  color: #333333;
-}
 
 .card-description {
   font-size: 16px;
   line-height: 1.6;
   margin-bottom: 40px;
   color: #333333;
+  
 }
 
 .card-source {
@@ -668,21 +641,12 @@ export default {
 }
 
 /* Question Block */
-.question-block {
-  margin-top: 40px;
-}
 
-.question-title {
-  font-size: 24px;
-  font-weight: 400;
-  margin-bottom: 24px;
-  line-height: 1.4;
-  color: #333333;
-}
+
 
 .question-text {
   color: #848484;
-  font-size: 15px;
+  font-size: 20px;
   line-height: 1.8;
   margin-bottom: 20px;
 }
@@ -731,6 +695,65 @@ export default {
   flex-wrap: wrap;
   gap: 8px;
 }
+.technical-specs {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  background-color: #A8A8A8;
+  color: #fff;
+  box-sizing: border-box;
+}
+#TECHNICAL_SPECIFICATIONS {
+  padding: 0;
+  margin: 0;
+  min-height: auto;
+  background-color: #A8A8A8;
+}
+
+.technical-specs {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin: 0;
+  padding: 0;
+}
+
+.specs-table th,
+.specs-table td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+.specs-table th {
+  color: #FFCD05;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.specs-table td {
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
 
 .tag-item {
   background-color: #f5f5f5;
@@ -748,7 +771,18 @@ export default {
   border-bottom: 1px solid #e0e0e0;
   background-color: #ffffff;
 }
-
+.content-block-packaging {
+  min-height: 10vh;
+  padding: 80px 60px;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #ffffff;
+}
+.content-block-STORAGE {
+  min-height: 60vh;
+  padding: 80px 60px;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #ffffff;
+}
 .content-inner {
   max-width: 1200px;
 }
@@ -758,7 +792,16 @@ export default {
   font-size: 16px;
   line-height: 1.8;
 }
-
+.section-text-packaging{
+    color: #848484;
+  font-size: 20px;
+  line-height: 1.8;
+}
+.section-text-STORAGE{
+  color: #848484;
+  font-size: 18px;
+  line-height: 1.8;
+}
 @media (max-width: 1024px) {
   .main-container {
     flex-direction: column;
@@ -816,5 +859,39 @@ export default {
   .section-title {
     font-size: 36px;
   }
+}
+
+.btn-slide-down {
+  background-color: transparent;
+}
+
+.btn-slide-down::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #FFCD05;
+  transform: translateY(-100%);
+  transition: transform 300ms ease;
+  z-index: 0;
+}
+
+.btn-slide-down:hover::before,
+.btn-slide-down:focus-visible::before {
+  transform: translateY(0);
+}
+
+.btn-slide-down:hover,
+.btn-slide-down:focus-visible {
+  color: #ffffff;
+  outline: none;
+}
+
+.btn-slide-down > span {
+  display: block;
+  width: 100%;
+  text-align: center;
 }
 </style>
