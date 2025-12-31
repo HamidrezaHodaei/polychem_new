@@ -10,7 +10,7 @@
     <div class="mobile-bg md:hidden" aria-hidden="true">
       <div class="mobile-bg-frame">
         <img
-          src="/login.jpg"
+          src="/login.webp"
           alt="Mobile background"
           class="mobile-bg-img"
           :style="{'--img-translate': imgTranslate + 'px', '--img-y': imgY + 'px'}"

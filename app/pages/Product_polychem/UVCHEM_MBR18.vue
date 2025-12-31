@@ -12,14 +12,14 @@
             <div class="hero-inner">
               <div class="hero-left ">
                 <div class="tag  ">Masterbatch</div>
-                <h1 class="title">ROTOCHEM 0955W</h1>
+                <h1 class="title">UVCHEM MB-R18</h1>
                 <p class="description text-justify">
-                  Rotochem 0955W is a specialized white color plastic compound designed for rotational molding applications. It is a compound of linear medium density polyethylene copolymer grade with a narrow molecular weight distribution with Tio2 that possesses a range of beneficial characteristics. Rotochem is an ideal choice for manufacturers who require a reliable and durable material that can withstand harsh environmental conditions. Whether utilized in industrial or consumer applications, this plastic material is a suitable choice for those seeking consistent and stable materials.
+                  UVCHEM MB-R18 is a high-performance UV stabilizer masterbatch, designed for use in raffia and woven fabric applications. It contains a synergistic blend of Hindered Amine Light Stabilizers (HALS) and UV absorbers optimized for long-term resistance against photo-oxidation, loss of mechanical properties, and color fading. The product provides superior dispersion, thermal stability, and process consistency in tape extrusion and drawing processes. The masterbatch is fully compatible with PP matrix and formulated to minimize processing discoloration and to provide long-term UV protection when dosed at 1 wt.% in the yarn formulation.
                 </p>
                 <a
                  href="#"
   class="btn-slide-down w-full lg:w-auto h-16 text-center rounded-lg relative overflow-hidden border-2 border-[#FFCD05] text-[#FFCD05] transition-colors px-5 py-2 text-lg font-medium tracking-widest ml-0 lg:ml-4 mt-4 lg:mt-0 flex items-center justify-center"
-  @click.prevent="openPdf('/0966W EN.pdf')"
+  @click.prevent="openPdf('/UVChem MB-R18.pdf')"
 >
   <span class="relative z-10">Download Data Sheet</span>
 </a>
@@ -27,7 +27,7 @@
 
               <div class="hero-right">
                 <div class="hero-right-image">
-                  <img src="/955w-p.jpg" alt="Hero image" />
+                  <img src="/Uv-chem.jpg" alt="Hero image" />
                 </div>
               </div>
             </div>
@@ -65,13 +65,17 @@
             <div id="ADVANTAGE" class="details-section">
               <div class="details-content">
                 <div class="details-left">
-                <h2 class="section-title">ADVANTAGE</h2>
+                <h2 class="section-title">TYPICAL APPLICATIONS</h2>
                 
 
                 <div class="question-block">
                   
-                  <p class="question-text">
-Rotochem exhibit a number of advantageous features, including excellent dispersion, exceptional impact strength, superior internal and external surface finish, optimal whiteness, reliable resistance to stress cracking, and efficient UV stabilization.                  </p>
+                  <ul class="advantage-list">
+                    <li>Polypropylene raffia tapes and woven sacks</li>
+                    <li>Agricultural and industrial packaging fabrics</li>
+                    <li>PP monofilaments and ropes</li>
+                    <li>Outdoor storage and construction fabrics</li>
+                  </ul>
                 </div>
               </div>
 
@@ -80,13 +84,13 @@ Rotochem exhibit a number of advantageous features, including excellent dispersi
                 <div class="sidebar-box">
                   <h4 class="sidebar-box-title">Related Industries</h4>
                   <ul class="industry-list">
-                    <li><span class="arrow">→</span> Rotational Molding</li>
-                    <li><span class="arrow">→</span> Water Management & Storage</li>
-                    <li><span class="arrow">→</span> Septic Systems & Tanks</li>
-                    <li><span class="arrow">→</span> Industrial Equipment Housings</li>
-                    <li><span class="arrow">→</span> Automotive Components</li>
-                    <li><span class="arrow">→</span> Outdoor Furniture & Leisure</li>
-                    <li><span class="arrow">→</span> Food Contact Applications</li>
+                    <li><span class="arrow">→</span> Textiles & Fibers</li>
+                    <li><span class="arrow">→</span> Raffia & Woven Fabrics</li>
+                    <li><span class="arrow">→</span> Industrial Packaging</li>
+                    <li><span class="arrow">→</span> Agricultural Applications</li>
+                    <li><span class="arrow">→</span> Construction Materials</li>
+                    <li><span class="arrow">→</span> Outdoor Products</li>
+                    <li><span class="arrow">→</span> UV Protection Applications</li>
                       </ul>
                 </div>
 
@@ -97,11 +101,34 @@ Rotochem exhibit a number of advantageous features, including excellent dispersi
           </section>
 
 
+          <!-- ADVANTAGE Section -->
+          <section id="ADVANTAGE_DETAIL" class="content-block-packaging">
+            <div class="content-inner">
+              <h2 class="section-title">ADVANTAGE</h2>
+              <ul class="advantage-list">
+                <li>Excellent long-term UV resistance and color stability</li>
+                <li>Maintains tensile and elongation properties during outdoor exposure</li>
+                <li>Excellent compatibility with PP homopolymers (raffia grades)</li>
+                <li>Low volatility and no interference with slip or antiblock additives</li>
+                <li>Dust-free, free-flowing pellets for consistent feeding</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- TYPICAL ADDITION RATE Section -->
+          <section id="TYPICAL_ADDITION_RATE" class="content-block-packaging">
+            <div class="content-inner">
+              <h2 class="section-title">TYPICAL ADDITION RATE</h2>
+              <p class="section-text-packaging">Add 1.0 wt.% UVChem MB-R18 to the polypropylene base resin during extrusion or compounding to achieve optimum UV protection.
+For outdoor or high-radiation applications, the dosage can be increased up to 1.5–2.0 wt.% depending on exposure conditions and product thickness. Ensure proper mixing using a loss-in-weight gravimetric feeder or equivalent dosing system for homogeneous distribution.</p>
+            </div>
+          </section>
+
           <!-- PACKAGING Section -->
           <section id="PACKAGING" class="content-block-packaging">
             <div class="content-inner">
               <h2 class="section-title">PACKAGING</h2>
-              <p class="section-text-packaging">Rotochem is supplied in powder form packed in 20 kg bags.</p>
+              <p class="section-text-packaging">UVChem MB-R18 is supplied in standard pellet form packed in 25 kg bags.</p>
             </div>
           </section>
 
@@ -109,7 +136,7 @@ Rotochem exhibit a number of advantageous features, including excellent dispersi
           <section id="STORAGE_AND_HANDLING" class="content-block-STORAGE">
             <div class="content-inner">
               <h2 class="section-title">STORAGE AND HANDLING</h2>
-              <p class="section-text-STORAGE">Rotochem should be stored to prevent direct sunlight and/or heat exposure. The storage area should also be dry and preferably not exceed 50°C; Bad storage conditions may lead to quality deterioration and product performance. It is advisable to process Rotochem within 18 months after delivery.</p>
+              <p class="section-text-STORAGE">UVChem MB-R18 should be stored to prevent direct sunlight and heat exposure. The storage area should also be dry and preferably not exceed 40°C; Bad storage conditions may lead to quality deterioration and product performance. It is advisable to pre-dry before use and process within 12 months under recommended conditions.</p>
             </div>
           </section>
 
@@ -135,26 +162,22 @@ export default {
       activeSection: 'ADVANTAGE',
       timelinePosition: 0,
       menuItems: [
-        { id: 'ADVANTAGE', label: 'ADVANTAGE', number: '01' },
-        { id: 'TECHNICAL_SPECIFICATIONS', label: 'TECHNICAL SPECIFICATIONS', number: '02' },
-        { id: 'PACKAGING', label: 'PACKAGING', number: '03' },
-        { id: 'STORAGE_AND_HANDLING', label: 'STORAGE AND HANDLING', number: '04' },
-        { id: 'our-offers', label: 'Our offers', number: '05' }
+        { id: 'applications', label: 'Applications', number: '01' },
+        { id: 'advantage', label: 'Advantages', number: '02' },
+        { id: 'addition-rate', label: 'Addition Rate', number: '03' },
+        { id: 'packaging', label: 'Packaging', number: '04' },
+        { id: 'storage', label: 'Storage', number: '05' }
       ],
       menuItemEls: [],
       showSidebar: false,
       specsData: [
-        { property: 'MFI (190°C / 2.16 kg)', testMethod: 'ASTM D1238-7', unit: 'g/10min', typicalValue: '3.5 ± 0.5' },
-        { property: 'Density', testMethod: 'ASTM D1505-68', unit: 'kg/m³', typicalValue: '0.937 – 0.945' },
-        { property: 'Titanium crystal type', testMethod: '-', unit: '-', typicalValue: 'Rutile type' },
-        { property: 'TiO₂ content', testMethod: '-', unit: '%', typicalValue: '2' },
-        { property: 'Moisture content', testMethod: '-', unit: 'ppm', typicalValue: '≤ 1500' },
-        { property: 'Vicat softening point', testMethod: 'ASTM D1525', unit: '°C', typicalValue: '115' },
-        { property: 'Tensile strength @ yield', testMethod: 'ASTM D638 - 72', unit: 'MPa', typicalValue: '15' },
-        { property: 'Elongation @ break', testMethod: 'ASTM D638', unit: '%', typicalValue: '> 700' },
-        { property: 'Flexural modulus', testMethod: 'ASTM D790', unit: 'MPa', typicalValue: '650' },
-        { property: 'Hardness', testMethod: 'ASTM D2240', unit: 'Shore D', typicalValue: '65' },
-        { property: 'ESCR (IGEPAL 10%) (F50, 50°C)', testMethod: 'ASTM D1693', unit: 'HR', typicalValue: '200' }
+        { property: 'Appearance', testMethod: 'Visual', unit: '–', typicalValue: 'Off-white to light beige' },
+        { property: 'Active Content', testMethod: '-', unit: 'wt.%', typicalValue: '20 ± 2' },
+        { property: 'Melt Flow Index (230 °C / 2.16 kg)', testMethod: 'ASTM D1238', unit: 'g/10 min', typicalValue: '7 – 9' },
+        { property: 'Density', testMethod: 'ASTM D792', unit: 'g/cm³', typicalValue: '0.91' },
+        { property: 'Volatile Matter (2 h @ 220 °C)', testMethod: 'TGA', unit: 'wt.%', typicalValue: '< 1' },
+        { property: 'Thermal Stability (5% weight loss)', testMethod: 'TGA', unit: '°C', typicalValue: '> 280' },
+        { property: 'UV protection efficiency', testMethod: 'ASTM D4329', unit: '-', typicalValue: '> 90% retention of tensile strength after 500 h QUV' }
       ]
     }
   },
@@ -174,55 +197,17 @@ export default {
     scrollToSection(id, event) {
       event.preventDefault()
       const element = document.getElementById(id)
-      if (element && this.$refs.mainContent) {
-        const container = this.$refs.mainContent
-        const elementTop = element.offsetTop
-        container.scrollTo({ top: elementTop, behavior: 'smooth' })
-      }
     },
     handleScroll() {
-      const main = this.$refs.mainContent
-      const heroHeight = this.$refs.heroSection ? this.$refs.heroSection.offsetHeight : 0
-      // show sidebar only after the hero (ADVANTAGE) is scrolled past
-      this.showSidebar = main.scrollTop >= Math.max(0, heroHeight)
-
-      const sections = this.menuItems.map(item => document.getElementById(item.id))
-      const scrollPosition = main.scrollTop + 200
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        if (sections[i] && sections[i].offsetTop <= scrollPosition) {
-          this.activeSection = this.menuItems[i].id
-          this.updateTimeline()
-          break
-        }
-      }
     },
-    updateTimeline() {
-      const activeIndex = this.menuItems.findIndex(item => item.id === this.activeSection)
-      const el = this.menuItemEls[activeIndex]
-      if (el && el.offsetTop != null) {
-        const barHeight = 40 // matches .timeline-bar height in CSS
-        this.timelinePosition = Math.round(el.offsetTop + el.offsetHeight / 2 - barHeight / 2)
-      } else {
-        this.timelinePosition = activeIndex * 52
-      }
-    }
+    updateTimeline() {}
     ,
     openPdf(url) {
-      if (process.server || typeof window === 'undefined') return;
-      if (!url) return;
-
       try {
-        const fileUrl = encodeURI(url);
-        const currentFav = document.querySelector('link[rel="icon"]')?.href || '/favicon.ico';
-        const win = window.open('', '_blank');
-        if (!win) {
-          window.open(fileUrl, '_blank');
-          return;
-        }
-
-        const doc = win.document;
-        const html = `<!doctype html>
+        const currentFav = '/english logo W1.png'
+        const fileUrl = url
+        const doc = window.open()
+        const html = `
 <html>
 <head>
   <meta charset="utf-8">
@@ -648,6 +633,29 @@ export default {
   font-size: 20px;
   line-height: 1.8;
   margin-bottom: 20px;
+}
+
+.advantage-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.advantage-list li {
+  color: #848484;
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+  padding-left: 24px;
+  position: relative;
+}
+
+.advantage-list li:before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #FFCD05;
+  font-weight: bold;
 }
 
 /* Sidebar Boxes */

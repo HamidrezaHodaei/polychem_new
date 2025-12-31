@@ -12,14 +12,15 @@
             <div class="hero-inner">
               <div class="hero-left ">
                 <div class="tag  ">Masterbatch</div>
-                <h1 class="title">ROTOCHEM 0955W</h1>
+                <h1 class="title">CALCICHEM 110 FRF</h1>
                 <p class="description text-justify">
-                  Rotochem 0955W is a specialized white color plastic compound designed for rotational molding applications. It is a compound of linear medium density polyethylene copolymer grade with a narrow molecular weight distribution with Tio2 that possesses a range of beneficial characteristics. Rotochem is an ideal choice for manufacturers who require a reliable and durable material that can withstand harsh environmental conditions. Whether utilized in industrial or consumer applications, this plastic material is a suitable choice for those seeking consistent and stable materials.
+                  CALCICHEM 110 FRF is a mineral modifier with a high, very fine, treated CaCO3 content that has an excellent dispersion in the final product, indicated for direct addition in the processing of polyolefins.
+The CALCICHEM 110 FRF mineral modifier is designed for films, Raffia and ropes and also suitable for general-purpose products with PE and PP carriers.
                 </p>
                 <a
                  href="#"
   class="btn-slide-down w-full lg:w-auto h-16 text-center rounded-lg relative overflow-hidden border-2 border-[#FFCD05] text-[#FFCD05] transition-colors px-5 py-2 text-lg font-medium tracking-widest ml-0 lg:ml-4 mt-4 lg:mt-0 flex items-center justify-center"
-  @click.prevent="openPdf('/0966W EN.pdf')"
+  @click.prevent="openPdf('/CALCICHEM 110 FRF.pdf')"
 >
   <span class="relative z-10">Download Data Sheet</span>
 </a>
@@ -27,7 +28,7 @@
 
               <div class="hero-right">
                 <div class="hero-right-image">
-                  <img src="/955w-p.jpg" alt="Hero image" />
+                  <img src="/110-FrF.webp" alt="Hero image" />
                 </div>
               </div>
             </div>
@@ -67,12 +68,14 @@
                 <div class="details-left">
                 <h2 class="section-title">ADVANTAGE</h2>
                 
-
-                <div class="question-block">
-                  
-                  <p class="question-text">
-Rotochem exhibit a number of advantageous features, including excellent dispersion, exceptional impact strength, superior internal and external surface finish, optimal whiteness, reliable resistance to stress cracking, and efficient UV stabilization.                  </p>
-                </div>
+                <ul class="advantage-list">
+                  <li>Improve the productivity of the production line</li>
+                  <li>Significant reduction of raw material costs</li>
+                  <li>Substantial improvement of thermal conductivity</li>
+                  <li>Reduction of power consumption</li>
+                  <li>Print improvement on the end product</li>
+                  <li>Anti-blocking effect</li>
+                </ul>
               </div>
 
               <div class="details-right">
@@ -80,13 +83,13 @@ Rotochem exhibit a number of advantageous features, including excellent dispersi
                 <div class="sidebar-box">
                   <h4 class="sidebar-box-title">Related Industries</h4>
                   <ul class="industry-list">
-                    <li><span class="arrow">→</span> Rotational Molding</li>
-                    <li><span class="arrow">→</span> Water Management & Storage</li>
-                    <li><span class="arrow">→</span> Septic Systems & Tanks</li>
-                    <li><span class="arrow">→</span> Industrial Equipment Housings</li>
-                    <li><span class="arrow">→</span> Automotive Components</li>
-                    <li><span class="arrow">→</span> Outdoor Furniture & Leisure</li>
-                    <li><span class="arrow">→</span> Food Contact Applications</li>
+                    <li><span class="arrow">→</span> Textiles & Fibers</li>
+                    <li><span class="arrow">→</span> Raffia & Woven Fabrics</li>
+                    <li><span class="arrow">→</span> Rope & Twine Production</li>
+                    <li><span class="arrow">→</span> Film Manufacturing</li>
+                    <li><span class="arrow">→</span> Molding & Extrusion</li>
+                    <li><span class="arrow">→</span> General Purpose Polyolefins</li>
+                    <li><span class="arrow">→</span> Packaging Materials</li>
                       </ul>
                 </div>
 
@@ -101,7 +104,7 @@ Rotochem exhibit a number of advantageous features, including excellent dispersi
           <section id="PACKAGING" class="content-block-packaging">
             <div class="content-inner">
               <h2 class="section-title">PACKAGING</h2>
-              <p class="section-text-packaging">Rotochem is supplied in powder form packed in 20 kg bags.</p>
+              <p class="section-text-packaging">CALCICHEM 110 FRF is supplied in standard pellet form packed in 25 kg bags.</p>
             </div>
           </section>
 
@@ -109,7 +112,7 @@ Rotochem exhibit a number of advantageous features, including excellent dispersi
           <section id="STORAGE_AND_HANDLING" class="content-block-STORAGE">
             <div class="content-inner">
               <h2 class="section-title">STORAGE AND HANDLING</h2>
-              <p class="section-text-STORAGE">Rotochem should be stored to prevent direct sunlight and/or heat exposure. The storage area should also be dry and preferably not exceed 50°C; Bad storage conditions may lead to quality deterioration and product performance. It is advisable to process Rotochem within 18 months after delivery.</p>
+              <p class="section-text-STORAGE">CALCICHEM 110 FRF should be stored to prevent direct sunlight and heat exposure. The storage area should also be dry and preferably not exceed 50°C; Bad storage conditions may lead to quality deterioration and product performance. It is advisable to pre-dry before use and process within 18 months after production date.</p>
             </div>
           </section>
 
@@ -144,17 +147,11 @@ export default {
       menuItemEls: [],
       showSidebar: false,
       specsData: [
-        { property: 'MFI (190°C / 2.16 kg)', testMethod: 'ASTM D1238-7', unit: 'g/10min', typicalValue: '3.5 ± 0.5' },
-        { property: 'Density', testMethod: 'ASTM D1505-68', unit: 'kg/m³', typicalValue: '0.937 – 0.945' },
-        { property: 'Titanium crystal type', testMethod: '-', unit: '-', typicalValue: 'Rutile type' },
-        { property: 'TiO₂ content', testMethod: '-', unit: '%', typicalValue: '2' },
+        { property: 'Carrier', testMethod: '-', unit: '-', typicalValue: 'Polypropylene' },
+        { property: 'CaCO₃ content', testMethod: '-', unit: '%', typicalValue: '80 ± 2' },
         { property: 'Moisture content', testMethod: '-', unit: 'ppm', typicalValue: '≤ 1500' },
-        { property: 'Vicat softening point', testMethod: 'ASTM D1525', unit: '°C', typicalValue: '115' },
-        { property: 'Tensile strength @ yield', testMethod: 'ASTM D638 - 72', unit: 'MPa', typicalValue: '15' },
-        { property: 'Elongation @ break', testMethod: 'ASTM D638', unit: '%', typicalValue: '> 700' },
-        { property: 'Flexural modulus', testMethod: 'ASTM D790', unit: 'MPa', typicalValue: '650' },
-        { property: 'Hardness', testMethod: 'ASTM D2240', unit: 'Shore D', typicalValue: '65' },
-        { property: 'ESCR (IGEPAL 10%) (F50, 50°C)', testMethod: 'ASTM D1693', unit: 'HR', typicalValue: '200' }
+        { property: 'Melt Index (230°C / 5 kg)', testMethod: '-', unit: 'g/10min', typicalValue: '12 ± 2' },
+        { property: 'Density @ 23°C', testMethod: '-', unit: 'g/cm³', typicalValue: '1.86 ± 0.05' }
       ]
     }
   },
@@ -762,7 +759,13 @@ export default {
   font-size: 12px;
   color: #848484;
 }
-
+.advantage-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: #848484;
+  font-size: 18px;
+  line-height: 1.8;
+}
 /* Other Content Blocks */
 .content-block {
   min-height: 100vh;

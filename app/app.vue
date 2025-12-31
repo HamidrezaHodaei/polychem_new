@@ -1,7 +1,8 @@
 <template>
   
   <NuxtPage />
-  
+  <AppLoading />
+
 </template>
 
 <style>
@@ -18,5 +19,5 @@ html, body, #__nuxt {
 }
 </style>
 <script setup>
-
+import AppLoading from '~/components/AppLoading.vue'
 </script>

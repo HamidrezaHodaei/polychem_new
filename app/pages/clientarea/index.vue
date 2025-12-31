@@ -2,7 +2,7 @@
   <div class="h-screen w-screen overflow-hidden relative">
     <!-- Background Image -->
     <div class="absolute inset-0 z-0">
-      <img src="/Rafcolor-1.jpg" 
+      <img src="/Rafcolor-1.webp" 
            alt="Background" 
            class="w-full h-full object-cover grayscale" />
       <div class="absolute inset-0 bg-gradient-to-t from-yellow-400/20 to-transparent"></div>

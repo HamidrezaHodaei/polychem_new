@@ -51,7 +51,7 @@
         >
           <source :src="leftVideoSrc" :type="leftVideoType" />
           <!-- fallback image if video not supported -->
-          <img src="/955w-p.jpg" alt="" />
+          <img src="/955w-p.webp" alt="" />
         </video>
       </div>
 
@@ -59,12 +59,14 @@
       <div
         v-for="(product, index) in products"
         :key="index"
+        :ref="(el) => { if(el) productRefs[index] = el }"
         :data-index="index"
         @click="handleProductClick(index, $event)"
+        @wheel="handleProductWheel(index, $event)"
         :class="[
           'flex flex-col items-center p-9 bg-[#f1f2f2] w-[310px] overflow-y-auto scroll-smooth transition-all duration-500 flex-shrink-0 ml-1.5 relative',
           {
-            'product-active w-full lg:w-[70%] px-8 lg:px-[70px] pb-0': activeProductIndex === index,
+            'product-active w-[calc(100%-220px)] px-8 lg:px-[70px] pb-0': activeProductIndex === index,
             'hover:shadow-[inset_0_-4px_0_0_#FFCD05] cursor-pointer': activeProductIndex !== index,
             'product-highlight': highlightedProductIndex === index
           }
@@ -154,7 +156,7 @@
           </div>
           
           <img 
-            :src="product.detailImage || '/955w-p.jpg'"
+            :src="product.detailImage || '/955w-p.webp'"
             alt="Detail"
             class="block mt-5 -mx-8 lg:-mx-[70px] max-w-none w-[calc(100%+64px)] lg:w-[calc(100%+140px)]"
           />
@@ -215,17 +217,18 @@
 </template>
 
 <script setup>
-import { ref, nextTick, onMounted, onUnmounted, watch } from 'vue';
+import { ref, nextTick, onMounted, watch } from 'vue';
 
 const route = useRoute();
 const containerRef = ref(null);
 const activeProductIndex = ref(null);
 const leftVideo = ref(null);
 const highlightedProductIndex = ref(null);
+const productRefs = ref({});
 
 // encode path (handles spaces)
 const leftVideoSrc = encodeURI('/Left side.mov');
-const leftVideoPoster = '/955w-p.jpg';
+const leftVideoPoster = '/955w-p.webp';
 const leftVideoType = leftVideoSrc.endsWith('.mp4')
   ? 'video/mp4'
   : leftVideoSrc.endsWith('.webm')
@@ -240,7 +243,7 @@ const products = [
     subtitleTitle: 'DESCRIPTION',
     subtitle: `Rotochem 0955W is a specialized white color plastic compound designed for rotational molding applications. It is a compound of linear medium density polyethylene copolymer grade with a narrow molecular weight distribution with Tio2 that possesses a range of beneficial characteristics. Rotochem is an ideal choice for manufacturers who require a reliable and durable material that can withstand harsh environmental conditions. Whether utilized in industrial or consumer applications, this plastic material is a suitable choice for those seeking consistent and stable materials.`,
     detailText: 'Rotochem 0955W delivers bright, uniform walls for large molded parts while maintaining impressive impact strength after long UV exposure. Customers rely on it for agricultural tanks, medical housings, and premium consumer bins where cosmetic consistency matters as much as durability.',
-    detailImage: '/955w-p.jpg',
+    detailImage: '/955w-p.webp',
     detailSections: [
    
       {
@@ -313,7 +316,7 @@ const products = [
     subtitleTitle: 'DESCRIPTION',
     subtitle: `POLYFIL F700 is a high-performance polyethylene compound specifically formulated for high-density polyethylene (HDPE) blown film applications. This grade is engineered to deliver superior mechanical properties, excellent film uniformity, and reliable processability, even in ultra-thin film applications.
 It is highly recommended for producing films with thicknesses in the range of 10–25 microns, making it suitable for a wide range of packaging and consumer products such as shopping bags, T-shirt bags, garbage bags, liner bags, and food-contact films.`,
-    detailImage: '/polyfilf700-2.jpg',
+    detailImage: '/polyfilf700-2.webp',
     detailSections: [
       
       {
@@ -362,7 +365,7 @@ It is highly recommended for producing films with thicknesses in the range of 10
     price: '',
     subtitleTitle: 'DESCRIPTION',
     subtitle: `HDCHEM 4760 is a specialized plastic compound designed for blow molding applications. It is a compound of polyethylene copolymers that possesses a range of beneficial characteristics. HDCHEM 4760 is an ideal choice for manufacturers who require a reliable and durable product, this plastic material is a dependable choice for those seeking consistent and stable materials.`,
-    detailImage: '/Hdchem-2.jpg',
+    detailImage: '/Hdchem-2.webp',
     detailSections: [
       
       {
@@ -395,7 +398,7 @@ specs: [
     price: '',
     subtitleTitle: 'DESCRIPTION',
     subtitle: `SlIPCHEM-E 178 is a high-performance slip masterbatch containing high quality slip agent dispersed in a polyethylene carrier resin. It is specifically developed to reduce the coefficient of friction (COF) between polymer film layers during winding, bag-making, and packaging processes. The product offers excellent dispersion, high thermal stability, and consistent migration performance.`,
-    detailImage: '/slipchem.jpg',
+    detailImage: '/slipchem.webp',
     detailSections: [
       
       {
@@ -445,7 +448,7 @@ specs: [
     price: '',
     subtitleTitle: 'DESCRIPTION',
     subtitle: `RAFCOLOR is the white masterbatch that consists of a high proportion of rutile titanium dioxide and thermoplastic polypropylene resin. The selected titanium dioxide has good opacity and dispersion performance. Highly-concentrated white MB with excellent dispersion and thermal stability can be applied to general-purpose products. It is recommended for raffia, Tapes, CF/BCF yarn, and other products.`,
-    detailImage: '/Rafcolor-1.jpg',
+    detailImage: '/Rafcolor-1.webp',
     propertyLabel: 'Item',
     detailSections: [
       
@@ -477,7 +480,7 @@ specs: [
     price: '',
     subtitleTitle: 'DESCRIPTION',
     subtitle: `CALCICHEM 126 FP is a polypropylene-based filler masterbatch containing 80% calcium carbonate (CaCO₃) . The CALCICHEM 126 FP features a high, very fine, treated CaCO₃ content, ensuring excellent dispersion within the final product. It is specifically designed for direct addition during the processing of polyolefins, including extrusion and injection molding. The CALCICHEM 126 FP is manufactured using the premium additives and advanced production lines.`,
-    detailImage: '/calcum-126.jpg',
+    detailImage: '/calcum-126.webp',
     propertyLabel: 'Item',
     detailSections: [
       
@@ -555,7 +558,7 @@ specs: [
     subtitleTitle: 'DESCRIPTION',
     subtitle: `CALCICHEM 275 PM is a polypropylene-based mineral masterbatch containing 75% ultra-fine mineral filler. It offers excellent dispersion and high mineral loading for enhanced performance in final products.
 Specifically with formulated for direct addition during the extrusion of BOPP, CPP, and OPP films, CALCICHEM 275 PM delivers consistent performance and superior quality this product Manufactured with premium additives and produced on advanced production lines, it meets the highest industry standards for reliability and efficiency.`,
-    detailImage: '/275.jpg',
+    detailImage: '/275.webp',
     propertyLabel: 'Item',
     detailSections: [
       
@@ -620,11 +623,11 @@ specs: [
   
  
   {
-    title: 'UVCHEM MB-R18',
+    title: 'UVCHEM MB R18',
     price: '',
     subtitleTitle: 'DESCRIPTION',
-    subtitle: `UVCHEM MB-R18 is a high-performance UV stabilizer masterbatch, designed for use in raffia and woven fabric applications. It contains a synergistic blend of Hindered Amine Light Stabilizers (HALS) and UV absorbers optimized for long-term resistance against photo-oxidation, loss of mechanical properties, and color fading. The product provides superior dispersion, thermal stability, and process consistency in tape extrusion and drawing processes. The masterbatch is fully compatible with PP matrix and formulated to minimize processing discoloration and to provide long-term UV protection when dosed at 1 wt.% in the yarn formulation.`,
-    detailImage: '/Uv-chem.jpg', 
+    subtitle: `UVCHEM MB R18 is a high-performance UV stabilizer masterbatch, designed for use in raffia and woven fabric applications. It contains a synergistic blend of Hindered Amine Light Stabilizers (HALS) and UV absorbers optimized for long-term resistance against photo-oxidation, loss of mechanical properties, and color fading. The product provides superior dispersion, thermal stability, and process consistency in tape extrusion and drawing processes. The masterbatch is fully compatible with PP matrix and formulated to minimize processing discoloration and to provide long-term UV protection when dosed at 1 wt.% in the yarn formulation.`,
+    detailImage: '/Uv-chem.webp', 
     detailSections: [
       {
         title: 'Typical Applications',
@@ -643,16 +646,16 @@ specs: [
       },
       {
         title: 'Typical Addition Rate',
-        body: `Add 1.0 wt.% UVChem MB-R18 to the polypropylene base resin during extrusion or compounding to achieve optimum UV protection.
+        body: `Add 1.0 wt.% UVCHEM MB R18 to the polypropylene base resin during extrusion or compounding to achieve optimum UV protection.
 For outdoor or high-radiation applications, the dosage can be increased up to 1.5–2.0 wt.% depending on exposure conditions and product thickness. Ensure proper mixing using a loss-in-weight gravimetric feeder or equivalent dosing system for homogeneous distribution.`,
       },
       {
         title: 'PACKAGING',
-        body: `UVChem MB-R18 is supplied in standard pellet form packed in 25 kg bags.`,
+        body: `UVCHEM MB R18 is supplied in standard pellet form packed in 25 kg bags.`,
       },
       {
         title: 'STORAGE AND HANDLING',
-        body: `UVChem MB-R18 should be stored to prevent direct sunlight and heat exposure. The storage area should also be dry and preferably not exceed 40°C; Bad storage conditions may lead to quality deterioration and product performance. It is advisable to pre-dry before use and process within 12 months under recommended conditions.`,
+        body: `UVCHEM MB R18 should be stored to prevent direct sunlight and heat exposure. The storage area should also be dry and preferably not exceed 40°C; Bad storage conditions may lead to quality deterioration and product performance. It is advisable to pre-dry before use and process within 12 months under recommended conditions.`,
       },
     ],
     specs: [
@@ -733,13 +736,11 @@ const smoothScrollTo = (targetScroll, duration = scrollConfig.duration) => {
 const calculateCenterScrollPosition = (index) => {
   const navWidth = 60;
   const coverWidth = 300;
-  const containerWidth = containerRef.value?.offsetWidth || 0;
-  const productCenter = productWidth / 2;
+  
+  // محصول سمت چپ (قبلی) باید کاملاً دیده شود
+  const scrollToShowLeftProduct = navWidth + coverWidth + (index * (productWidth + gap));
 
-  const productCenterX = navWidth + coverWidth + (index * (productWidth + gap)) + productCenter;
-  const targetScrollLeft = productCenterX - containerWidth / 3 + scrollConfig.offsetFromCenter;
-
-  return Math.max(0, targetScrollLeft);
+  return Math.max(0, scrollToShowLeftProduct);
 };
 
 const handleProductClick = async (index, event) => {
@@ -769,6 +770,25 @@ const handleProductClick = async (index, event) => {
 const closeProduct = () => {
   activeProductIndex.value = null;
   highlightedProductIndex.value = null;
+};
+
+const handleProductWheel = (index, event) => {
+  // فقط اگر محصول فعال (باز) است، اسکرول را مجاز کن
+  if (activeProductIndex.value !== index) return;
+  
+  const productEl = productRefs.value[index];
+  if (!productEl) return;
+  
+  // اگر محتوا قابل اسکرول است
+  if (productEl.scrollHeight > productEl.clientHeight) {
+    event.preventDefault();
+    
+    // سرعت اسکرول بیشتر (میلی‌پیکسل در هر wheel event) - بدون smooth برای حساسیت بیشتر
+    const scrollSpeed = 320;
+    const scrollAmount = event.deltaY > 0 ? scrollSpeed : -scrollSpeed;
+    
+    productEl.scrollTop += scrollAmount;
+  }
 };
 
 const scrollToProduct = async (index) => {
@@ -870,77 +890,6 @@ onMounted(() => {
       onVideoLoaded();
     }
   });
-});
-
-// Smooth wheel handler: when a product detail is open, animate vertical scroll inside that card.
-// Otherwise allow normal page vertical scrolling.
-let wheelAnimFrame = null;
-let wheelTarget = 0;
-const wheelSensitivity = 1.0; // tweak this number to make scrolling faster/slower
-
-const stopWheelAnimation = () => {
-  if (wheelAnimFrame) {
-    cancelAnimationFrame(wheelAnimFrame);
-    wheelAnimFrame = null;
-  }
-};
-
-const animateWheelTo = (el) => {
-  if (!el) return;
-  const step = () => {
-    const current = el.scrollTop;
-    const diff = wheelTarget - current;
-    // small epsilon to stop
-    if (Math.abs(diff) < 0.5) {
-      el.scrollTop = wheelTarget;
-      wheelAnimFrame = null;
-      return;
-    }
-    // ease - lerp towards target
-    el.scrollTop = current + diff * 0.22;
-    wheelAnimFrame = requestAnimationFrame(step);
-  };
-
-  if (!wheelAnimFrame) wheelAnimFrame = requestAnimationFrame(step);
-};
-
-const wheelToHorizontal = (e) => {
-  if (process.server || !containerRef.value) return;
-
-  // If a product is active, route vertical wheel to that product's vertical scroll (smooth)
-  if (activeProductIndex.value !== null) {
-    const productEl = containerRef.value.querySelector(`[data-index="${activeProductIndex.value}"]`);
-    if (productEl) {
-      // only respond to mostly-vertical motion
-      if (Math.abs(e.deltaY) < Math.abs(e.deltaX)) return;
-
-      e.preventDefault();
-
-      // accumulate target and animate
-      stopWheelAnimation();
-      wheelTarget = productEl.scrollTop + e.deltaY * wheelSensitivity;
-      // clamp
-      wheelTarget = Math.max(0, Math.min(wheelTarget, productEl.scrollHeight - productEl.clientHeight));
-      animateWheelTo(productEl);
-    }
-    return;
-  }
-
-  // No active detail: allow normal vertical scrolling (do nothing)
-  return;
-};
-
-onMounted(() => {
-  // attach wheel listener (non-passive so we can preventDefault)
-  if (containerRef.value) {
-    containerRef.value.addEventListener('wheel', wheelToHorizontal, { passive: false });
-    // help touch/scroll behavior
-    try { containerRef.value.style.overscrollBehavior = 'contain'; } catch (err) {}
-  }
-});
-
-onUnmounted(() => {
-  if (containerRef.value) containerRef.value.removeEventListener('wheel', wheelToHorizontal);
 });
 
 // اضافه کردن/جایگزینی تابع باز کردن تب جدید (اکنون با favicon دلخواه و iframe)

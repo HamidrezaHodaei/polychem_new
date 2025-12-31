@@ -11,15 +11,15 @@
           <section class="hero-content" ref="heroSection">
             <div class="hero-inner">
               <div class="hero-left ">
-                <div class="tag  ">Masterbatch</div>
-                <h1 class="title">ROTOCHEM 0955W</h1>
+                <div class="tag  ">Compound</div>
+                <h1 class="title">POLYFIL F700</h1>
                 <p class="description text-justify">
-                  Rotochem 0955W is a specialized white color plastic compound designed for rotational molding applications. It is a compound of linear medium density polyethylene copolymer grade with a narrow molecular weight distribution with Tio2 that possesses a range of beneficial characteristics. Rotochem is an ideal choice for manufacturers who require a reliable and durable material that can withstand harsh environmental conditions. Whether utilized in industrial or consumer applications, this plastic material is a suitable choice for those seeking consistent and stable materials.
+                  POLYFIL F700 is a high-performance polyethylene compound specifically formulated for high-density polyethylene (HDPE) blown film applications. This grade is engineered to deliver superior mechanical properties, excellent film uniformity, and reliable processability, even in ultra-thin film applications. It is highly recommended for producing films with thicknesses in the range of 10–25 microns, making it suitable for a wide range of packaging and consumer products such as shopping bags, T-shirt bags, garbage bags, liner bags, and food-contact films.
                 </p>
                 <a
                  href="#"
   class="btn-slide-down w-full lg:w-auto h-16 text-center rounded-lg relative overflow-hidden border-2 border-[#FFCD05] text-[#FFCD05] transition-colors px-5 py-2 text-lg font-medium tracking-widest ml-0 lg:ml-4 mt-4 lg:mt-0 flex items-center justify-center"
-  @click.prevent="openPdf('/0966W EN.pdf')"
+  @click.prevent="openPdf('/POLYFIL F700.pdf')"
 >
   <span class="relative z-10">Download Data Sheet</span>
 </a>
@@ -27,7 +27,7 @@
 
               <div class="hero-right">
                 <div class="hero-right-image">
-                  <img src="/955w-p.jpg" alt="Hero image" />
+                  <img src="/polyfilf700-2.jpg" alt="Hero image" />
                 </div>
               </div>
             </div>
@@ -70,8 +70,15 @@
 
                 <div class="question-block">
                   
-                  <p class="question-text">
-Rotochem exhibit a number of advantageous features, including excellent dispersion, exceptional impact strength, superior internal and external surface finish, optimal whiteness, reliable resistance to stress cracking, and efficient UV stabilization.                  </p>
+                  <ul class="advantage-list">
+                    <li>High tensile strength with excellent dart impact resistance</li>
+                    <li>Low gel content for smooth, defect free films</li>
+                    <li>Good moisture barrier and enhanced ultra thin film capability</li>
+                    <li>Food contact compliant suitable for hygienic and food packaging uses</li>
+                    <li>High stiffness ensuring good dimensional stability</li>
+                    <li>Wide service temperature range and UV resistance for outdoor durability</li>
+                    <li>Good impact resistance and excellent processability on standard HDPE film lines</li>
+                  </ul>
                 </div>
               </div>
 
@@ -80,13 +87,13 @@ Rotochem exhibit a number of advantageous features, including excellent dispersi
                 <div class="sidebar-box">
                   <h4 class="sidebar-box-title">Related Industries</h4>
                   <ul class="industry-list">
-                    <li><span class="arrow">→</span> Rotational Molding</li>
-                    <li><span class="arrow">→</span> Water Management & Storage</li>
-                    <li><span class="arrow">→</span> Septic Systems & Tanks</li>
-                    <li><span class="arrow">→</span> Industrial Equipment Housings</li>
-                    <li><span class="arrow">→</span> Automotive Components</li>
-                    <li><span class="arrow">→</span> Outdoor Furniture & Leisure</li>
-                    <li><span class="arrow">→</span> Food Contact Applications</li>
+                    <li><span class="arrow">→</span> Flexible Packaging</li>
+                    <li><span class="arrow">→</span> Food & Beverage Packaging</li>
+                    <li><span class="arrow">→</span> Retail & Shopping Bags</li>
+                    <li><span class="arrow">→</span> Garbage & Waste Management</li>
+                    <li><span class="arrow">→</span> Liner Bags & Industrial Packaging</li>
+                    <li><span class="arrow">→</span> Agriculture & Soil Covers</li>
+                    <li><span class="arrow">→</span> Consumer Goods Manufacturing</li>
                       </ul>
                 </div>
 
@@ -100,8 +107,21 @@ Rotochem exhibit a number of advantageous features, including excellent dispersi
           <!-- PACKAGING Section -->
           <section id="PACKAGING" class="content-block-packaging">
             <div class="content-inner">
+              <h2 class="section-title">PROCESSING GUIDELINES</h2>
+              <p class="section-text-packaging">Processing parameters may vary depending on machine configuration, die size, and target film thickness. The following conditions are recommended as a starting point:</p>
+              <ul class="advantage-list">
+                <li>Melt Temperature: 190–210 °C</li>
+                <li>Blow Up Ratio (BUR): 3–5</li>
+                <li>Frost Line Height (FLH): 8–10 × die diameter</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- PACKAGING Section -->
+          <section id="PACKAGING" class="content-block-packaging">
+            <div class="content-inner">
               <h2 class="section-title">PACKAGING</h2>
-              <p class="section-text-packaging">Rotochem is supplied in powder form packed in 20 kg bags.</p>
+              <p class="section-text-packaging">POLYFIL F700 is supplied in powder form packed in 25 kg bags.</p>
             </div>
           </section>
 
@@ -109,7 +129,7 @@ Rotochem exhibit a number of advantageous features, including excellent dispersi
           <section id="STORAGE_AND_HANDLING" class="content-block-STORAGE">
             <div class="content-inner">
               <h2 class="section-title">STORAGE AND HANDLING</h2>
-              <p class="section-text-STORAGE">Rotochem should be stored to prevent direct sunlight and/or heat exposure. The storage area should also be dry and preferably not exceed 50°C; Bad storage conditions may lead to quality deterioration and product performance. It is advisable to process Rotochem within 18 months after delivery.</p>
+              <p class="section-text-STORAGE">POLYFIL F700 should be stored to prevent direct sunlight and/or heat exposure. The storage area should also be dry and preferably not exceed 50°C; Bad storage conditions may lead to quality deterioration and product performance. It is advisable to process POLYFIL F700 within 12 months after delivery.</p>
             </div>
           </section>
 
@@ -648,6 +668,29 @@ export default {
   font-size: 20px;
   line-height: 1.8;
   margin-bottom: 20px;
+}
+
+.advantage-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.advantage-list li {
+  color: #848484;
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+  padding-left: 24px;
+  position: relative;
+}
+
+.advantage-list li:before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #FFCD05;
+  font-weight: bold;
 }
 
 /* Sidebar Boxes */

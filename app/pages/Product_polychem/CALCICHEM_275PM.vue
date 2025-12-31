@@ -12,14 +12,14 @@
             <div class="hero-inner">
               <div class="hero-left ">
                 <div class="tag  ">Masterbatch</div>
-                <h1 class="title">ROTOCHEM 0955W</h1>
+                <h1 class="title">CALCICHEM 275 PM</h1>
                 <p class="description text-justify">
-                  Rotochem 0955W is a specialized white color plastic compound designed for rotational molding applications. It is a compound of linear medium density polyethylene copolymer grade with a narrow molecular weight distribution with Tio2 that possesses a range of beneficial characteristics. Rotochem is an ideal choice for manufacturers who require a reliable and durable material that can withstand harsh environmental conditions. Whether utilized in industrial or consumer applications, this plastic material is a suitable choice for those seeking consistent and stable materials.
+                  CALCICHEM 275 PM is a polypropylene-based mineral masterbatch containing 75% ultra-fine mineral filler with excellent dispersion properties. Specifically formulated for direct addition during the extrusion of BOPP, CPP, and OPP films, it provides improved film properties and cost-effective solutions for film manufacturers seeking to optimize material performance and reduce production costs.
                 </p>
                 <a
                  href="#"
   class="btn-slide-down w-full lg:w-auto h-16 text-center rounded-lg relative overflow-hidden border-2 border-[#FFCD05] text-[#FFCD05] transition-colors px-5 py-2 text-lg font-medium tracking-widest ml-0 lg:ml-4 mt-4 lg:mt-0 flex items-center justify-center"
-  @click.prevent="openPdf('/0966W EN.pdf')"
+  @click.prevent="openPdf('/CALCICHEM 275 PM.pdf')"
 >
   <span class="relative z-10">Download Data Sheet</span>
 </a>
@@ -27,7 +27,7 @@
 
               <div class="hero-right">
                 <div class="hero-right-image">
-                  <img src="/955w-p.jpg" alt="Hero image" />
+                  <img src="/275.jpg" alt="Hero image" />
                 </div>
               </div>
             </div>
@@ -67,12 +67,11 @@
                 <div class="details-left">
                 <h2 class="section-title">ADVANTAGE</h2>
                 
-
-                <div class="question-block">
-                  
-                  <p class="question-text">
-Rotochem exhibit a number of advantageous features, including excellent dispersion, exceptional impact strength, superior internal and external surface finish, optimal whiteness, reliable resistance to stress cracking, and efficient UV stabilization.                  </p>
-                </div>
+                <ul class="advantage-list">
+                  <li>Improved consistency and uniformity in film properties</li>
+                  <li>Enhanced thermal stability and processing stability</li>
+                  <li>Suitable for high-performance film applications</li>
+                </ul>
               </div>
 
               <div class="details-right">
@@ -80,13 +79,13 @@ Rotochem exhibit a number of advantageous features, including excellent dispersi
                 <div class="sidebar-box">
                   <h4 class="sidebar-box-title">Related Industries</h4>
                   <ul class="industry-list">
-                    <li><span class="arrow">→</span> Rotational Molding</li>
-                    <li><span class="arrow">→</span> Water Management & Storage</li>
-                    <li><span class="arrow">→</span> Septic Systems & Tanks</li>
-                    <li><span class="arrow">→</span> Industrial Equipment Housings</li>
-                    <li><span class="arrow">→</span> Automotive Components</li>
-                    <li><span class="arrow">→</span> Outdoor Furniture & Leisure</li>
-                    <li><span class="arrow">→</span> Food Contact Applications</li>
+                    <li><span class="arrow">→</span> Film Manufacturing</li>
+                    <li><span class="arrow">→</span> BOPP/CPP/OPP Film Extrusion</li>
+                    <li><span class="arrow">→</span> Flexible Packaging</li>
+                    <li><span class="arrow">→</span> Lamination Films</li>
+                    <li><span class="arrow">→</span> Label & Decoration Films</li>
+                    <li><span class="arrow">→</span> Industrial Films</li>
+                    <li><span class="arrow">→</span> Food Packaging Films</li>
                       </ul>
                 </div>
 
@@ -101,7 +100,7 @@ Rotochem exhibit a number of advantageous features, including excellent dispersi
           <section id="PACKAGING" class="content-block-packaging">
             <div class="content-inner">
               <h2 class="section-title">PACKAGING</h2>
-              <p class="section-text-packaging">Rotochem is supplied in powder form packed in 20 kg bags.</p>
+              <p class="section-text-packaging">CALCICHEM 275 PM is supplied in standard pellet form packed in 25 kg bags.</p>
             </div>
           </section>
 
@@ -109,7 +108,7 @@ Rotochem exhibit a number of advantageous features, including excellent dispersi
           <section id="STORAGE_AND_HANDLING" class="content-block-STORAGE">
             <div class="content-inner">
               <h2 class="section-title">STORAGE AND HANDLING</h2>
-              <p class="section-text-STORAGE">Rotochem should be stored to prevent direct sunlight and/or heat exposure. The storage area should also be dry and preferably not exceed 50°C; Bad storage conditions may lead to quality deterioration and product performance. It is advisable to process Rotochem within 18 months after delivery.</p>
+              <p class="section-text-STORAGE">CALCICHEM 275 PM should be stored to prevent direct sunlight and heat exposure. The storage area should also be dry and preferably not exceed 35°C; Bad storage conditions may lead to quality deterioration and product performance. It is advisable to pre-dry before use and process within 18 months after production date.</p>
             </div>
           </section>
 
@@ -144,17 +143,12 @@ export default {
       menuItemEls: [],
       showSidebar: false,
       specsData: [
-        { property: 'MFI (190°C / 2.16 kg)', testMethod: 'ASTM D1238-7', unit: 'g/10min', typicalValue: '3.5 ± 0.5' },
-        { property: 'Density', testMethod: 'ASTM D1505-68', unit: 'kg/m³', typicalValue: '0.937 – 0.945' },
-        { property: 'Titanium crystal type', testMethod: '-', unit: '-', typicalValue: 'Rutile type' },
-        { property: 'TiO₂ content', testMethod: '-', unit: '%', typicalValue: '2' },
+        { property: 'Carrier', testMethod: '-', unit: '-', typicalValue: 'Polypropylene' },
+        { property: 'Mineral content', testMethod: '-', unit: '%', typicalValue: '75 ± 1' },
+        { property: 'Mean particle size d50%', testMethod: '-', unit: 'μm', typicalValue: '≤ 2' },
         { property: 'Moisture content', testMethod: '-', unit: 'ppm', typicalValue: '≤ 1500' },
-        { property: 'Vicat softening point', testMethod: 'ASTM D1525', unit: '°C', typicalValue: '115' },
-        { property: 'Tensile strength @ yield', testMethod: 'ASTM D638 - 72', unit: 'MPa', typicalValue: '15' },
-        { property: 'Elongation @ break', testMethod: 'ASTM D638', unit: '%', typicalValue: '> 700' },
-        { property: 'Flexural modulus', testMethod: 'ASTM D790', unit: 'MPa', typicalValue: '650' },
-        { property: 'Hardness', testMethod: 'ASTM D2240', unit: 'Shore D', typicalValue: '65' },
-        { property: 'ESCR (IGEPAL 10%) (F50, 50°C)', testMethod: 'ASTM D1693', unit: 'HR', typicalValue: '200' }
+        { property: 'Melt Index (230°C / 2.16 kg)', testMethod: '-', unit: 'g/10min', typicalValue: '3 ± 1' },
+        { property: 'Density @ 23°C', testMethod: '-', unit: 'g/cm³', typicalValue: '1.75 ± 0.05' }
       ]
     }
   },
