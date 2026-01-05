@@ -43,9 +43,20 @@
 
         <!-- Posts Tab -->
         <div v-show="activeTab === 0" class="tab transition-opacity duration-1000" :class="{ 'opacity-100': activeTab === 0, 'opacity-0': activeTab !== 0 }">
+          <!-- Category Filter Header -->
+          <div v-if="selectedCategory" class="bg-[#FFCD05] text-white px-8 md:px-32 xl:px-40 py-4 flex items-center justify-between">
+            <span class="uppercase tracking-wider font-bold">Filtered by: <span class="text-lg">{{ selectedCategory }}</span></span>
+            <button 
+              @click="selectedCategory = null; displayedPosts = []"
+              class="px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition-colors"
+            >
+              Clear Filter
+            </button>
+          </div>
+
           <ul>
             <li
-              v-for="(post, index) in posts"
+              v-for="(post, index) in selectedCategory ? displayedPosts : posts"
               :key="index"
               class="preview transition-colors duration-200"
               :class="{ 'bg-white': index % 2 === 1 }"
@@ -78,13 +89,17 @@
         <div v-show="activeTab === 1" class="tab transition-opacity duration-1000" :class="{ 'opacity-100': activeTab === 1, 'opacity-0': activeTab !== 1 }">
           <ul class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 p-6 md:p-8 xl:p-12">
             <li v-for="(category, index) in categories" :key="index" class="card">
-              <a href="#" class="block bg-white shadow-[0_1px_2px_rgba(10,10,10,0.1),0_1px_2px_rgba(10,10,10,0.2)] transition-all duration-200 group relative h-full flex flex-col">
+              <a 
+                href="#"
+                @click.prevent="filterByCategory(category.name)"
+                class="block bg-white shadow-[0_1px_2px_rgba(10,10,10,0.1),0_1px_2px_rgba(10,10,10,0.2)] transition-all duration-200 hover:shadow-lg group relative h-full flex flex-col"
+              >
                 <div class="relative h-56 md:h-64 lg:h-72 bg-black overflow-hidden flex-shrink-0">
                   <figure
-                    class="absolute inset-0 bg-cover bg-center bg-no-repeat grayscale-img"
+                    class="absolute inset-0 bg-cover bg-center bg-no-repeat grayscale-img group-hover:grayscale-0 transition-all duration-300"
                     :style="{ backgroundImage: `url(${category.image})` }"
                   />
-                  <div class="absolute inset-0 bg-black/20 transition-all duration-400" />
+                  <div class="absolute inset-0 bg-black/20 transition-all duration-400 group-hover:bg-black/10" />
                 </div>
                 <div class="p-6 md:p-8 flex-1 flex flex-col">
                   <h2 class="text-[#FFCD05] text-2xl md:text-3xl font-bold mb-2">{{ category.name }}</h2>
@@ -122,6 +137,8 @@ import Chatbox from '~/components/chatbox.vue'
 const tabs = ['Posts', 'Categories']
 const activeTab = ref(0)
 const currentImageIndex = ref(0)
+const selectedCategory = ref(null)
+const displayedPosts = ref([])
 
 const backgroundImages = [
 '/Visit-tabriz-3.webp',
@@ -227,6 +244,21 @@ const changeTab = (index) => {
 
 const changeImage = (index) => {
   currentImageIndex.value = index
+}
+
+const filterByCategory = (categoryName) => {
+  // Set the selected category
+  selectedCategory.value = categoryName
+  
+  // Filter posts by tag/category
+  displayedPosts.value = posts.filter(post => {
+    const tag = post.tag?.toLowerCase() || ''
+    const category = categoryName.toLowerCase()
+    return tag === category || (category === 'events' && post.tag?.toLowerCase() === 'event')
+  })
+  
+  // Switch to Posts tab to show filtered results
+  activeTab.value = 0
 }
 </script>
 

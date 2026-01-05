@@ -346,5 +346,10 @@ input:-webkit-autofill:focus {
   background-color: #ffffff !important;
   backface-visibility: hidden;
   transform: translate3d(0, 0, 0);
+  transition: filter 300ms ease;
+}
+
+.card-stack:hover .card-image img {
+  filter: grayscale(0) !important;
 }
 </style>

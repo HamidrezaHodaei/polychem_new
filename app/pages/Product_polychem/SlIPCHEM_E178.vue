@@ -27,7 +27,7 @@
 
               <div class="hero-right">
                 <div class="hero-right-image">
-                  <img src="/slipchem.jpg" alt="Hero image" />
+                  <img src="/slipchem.webp" alt="Hero image" />
                 </div>
               </div>
             </div>

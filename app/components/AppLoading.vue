@@ -75,7 +75,7 @@
 import { ref, onMounted } from 'vue'
 import gsap from 'gsap'
 
-const isLoading = ref(true)
+const isLoading = useLoadingState()
 const yellowCircle = ref(null)
 const whiteCircle = ref(null)
 const path1 = ref(null)
@@ -196,8 +196,8 @@ onMounted(() => {
 }
 
 .loader-svg {
-  max-width: 200px;
-  max-height: 200px;
+  max-width: 160px;
+  max-height: 160px;
   width: 100%;
   height: auto;
   display: block;

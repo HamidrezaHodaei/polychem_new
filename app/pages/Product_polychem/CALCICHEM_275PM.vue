@@ -27,7 +27,7 @@
 
               <div class="hero-right">
                 <div class="hero-right-image">
-                  <img src="/275.jpg" alt="Hero image" />
+                  <img src="/275.webp" alt="Hero image" />
                 </div>
               </div>
             </div>

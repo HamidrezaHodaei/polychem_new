@@ -28,7 +28,7 @@ The CALCICHEM 110 FRF mineral modifier is designed for films, Raffia and ropes a
 
               <div class="hero-right">
                 <div class="hero-right-image">
-                  <img src="/110-FrF.webp" alt="Hero image" />
+                  <img src="/110-1.webp" alt="Hero image" />
                 </div>
               </div>
             </div>

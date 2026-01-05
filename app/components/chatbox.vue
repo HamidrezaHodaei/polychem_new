@@ -1,5 +1,5 @@
 <template>
-  <div class="chat-widget">
+  <div class="chat-widget" v-if="!isLoading">
     <!-- Floating Action Button -->
     <button
       class="chat-fab"
@@ -101,6 +101,8 @@
 
 <script setup>
 import { ref, nextTick, watch, onMounted, onUnmounted } from 'vue'
+
+const isLoading = useLoadingState()
 
 /* State */
 const messages = ref([
@@ -670,12 +672,12 @@ onUnmounted(() => {
 /* Floating Button */
 .chat-fab {
   z-index: 100001; /* keep the button itself above everything */
-  width: 90px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   background: #ffd000;
   /* thin gray stroke around the circular button */
-  border: 4px solid #848484;
+  border: 3px solid #848484;
    cursor: pointer;
    display: flex;
    align-items: center;
@@ -693,8 +695,8 @@ onUnmounted(() => {
 /* ensure the public svg fits nicely inside the fab - larger for better visibility */
 .chat-fab img,
 .chat-fab .fab-img {
-  width: 72px;
-  height: 72px;
+  width: 62px;
+  height: 62px;
   object-fit: contain;
   display: block;
 }

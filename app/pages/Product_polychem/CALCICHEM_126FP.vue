@@ -27,7 +27,7 @@
 
               <div class="hero-right">
                 <div class="hero-right-image">
-                  <img src="/calcum-126.jpg" alt="Hero image" />
+                  <img src="/calcum-126.webp" alt="Hero image" />
                 </div>
               </div>
             </div>

@@ -27,7 +27,7 @@
 
               <div class="hero-right">
                 <div class="hero-right-image">
-                  <img src="/Uv-chem.jpg" alt="Hero image" />
+                  <img src="/Uv-chem.webp" alt="Hero image" />
                 </div>
               </div>
             </div>

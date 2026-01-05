@@ -23,7 +23,7 @@
       
       <!-- Left Image (Desktop only) -->
       <div class="hidden md:block md:flex-1 h-full w-[600px]">
-        <img src="/login.jpg" alt="Form Image" class="w-full h-full object-cover" />
+        <img src="/login.webp" alt="Form Image" class="w-full h-full object-cover" />
       </div>
 
       <!-- Form -->

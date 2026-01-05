@@ -21,7 +21,7 @@
     <div class="bg-white rounded-xl shadow-lg h-[640px] max-w-5xl w-full flex flex-col md:flex-row overflow-hidden md:h-[580px] relative form-card">
       <!-- Left Image (Desktop only, matching login) -->
       <div class="hidden md:block md:flex-1 h-full w-[600px]">
-        <img src="/login.jpg" alt="Form Image" class="w-full h-full object-cover" />
+        <img src="/login.webp" alt="Form Image" class="w-full h-full object-cover" />
       </div>
 
       <!-- Form -->

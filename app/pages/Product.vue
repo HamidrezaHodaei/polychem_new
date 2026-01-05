@@ -88,8 +88,7 @@
         <div v-if="activeProductIndex === index" class="flex items-center justify-between w-full mb-6 gap-4 animate-fade-up sticky top-0 z-10 bg-[#f1f2f2] py-2" style="animation-delay: 0.1s">
           <button
             @click.stop="previousProduct"
-            :disabled="activeProductIndex === 0"
-            class="flex items-center justify-center w-12 h-12 rounded-full border-2 border-[#FFCD05] text-[#FFCD05] hover:bg-[#FFCD05] hover:text-black transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            class="flex items-center justify-center w-12 h-12 rounded-full border-2 border-[#FFCD05] text-[#FFCD05] hover:bg-[#FFCD05] hover:text-black transition-all"
             aria-label="Previous product"
           >
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -297,16 +296,17 @@ const products = [
         body: `Rotochem should be stored to prevent direct sunlight and/or heat exposure. The storage area should also be dry and preferably not exceed 50°C; Bad storage conditions may lead to quality deterioration and product performance. It is advisable to process Rotochem within 18 months after delivery.`,
       },
     ],
- specs: [
-  { property: 'MFI (190°C / 5 kg)',      testMethod: 'ISO 1133',      unit: 'g/10min', typicalValue: '0.19 ± 0.1' },
-  { property: 'Density',                testMethod: 'ISO 1183',      unit: 'kg/m³',   typicalValue: '0.952 ± 0.003' },
-  { property: 'Moisture content',       testMethod: '-',             unit: 'ppm',     typicalValue: '≤ 1500' },
-  { property: 'Melting point',          testMethod: 'ASTM D2117',    unit: '°C',      typicalValue: '135 ± 5' },
-  { property: 'Vicat softening point',  testMethod: 'ASTM D1525',    unit: '°C',      typicalValue: '124' },
-  { property: 'Tensile strength @ yield (MD)',       testMethod: 'ASTM D638', unit: 'MPa', typicalValue: '24' },
-  { property: 'Tensile strength @ yield (MD, TD)',   testMethod: 'ASTM D638', unit: 'MPa', typicalValue: '30, 60' },
-  { property: 'Elongation @ break (MD, TD)',         testMethod: 'ASTM D638', unit: '%',   typicalValue: '450, 240' },
-  { property: 'ESCR (IGEPAL 10%) (F50, 50°C)',       testMethod: 'ASTM D1693', unit: 'HR',  typicalValue: '> 1000' }
+specs: [
+  { property: 'MFI (190°C / 2.16 kg)', testMethod: 'ASTM D1238-7', unit: 'g/10min', typicalValue: '3.5 ± 0.5' },
+  { property: 'Density',              testMethod: 'ASTM D1505-68', unit: 'kg/m³',   typicalValue: '0.937 – 0.945' },
+  { property: 'Pigment content',       testMethod: '-',            unit: '%',        typicalValue: '0.3 – 0.5' },
+  { property: 'Moisture content',      testMethod: '-',            unit: 'ppm',      typicalValue: '≤ 1500' },
+  { property: 'Vicat softening point', testMethod: 'ASTM D1525',   unit: '°C',       typicalValue: '115' },
+  { property: 'Tensile strength @ yield', testMethod: 'ASTM D638-72', unit: 'MPa',   typicalValue: '15' },
+  { property: 'Elongation @ break',    testMethod: 'ASTM D638',    unit: '%',        typicalValue: '> 700' },
+  { property: 'Flexural modulus',      testMethod: 'ASTM D790',    unit: 'MPa',      typicalValue: '650' },
+  { property: 'Hardness',              testMethod: 'ASTM D2240',   unit: 'Shore D',  typicalValue: '65' },
+  { property: 'ESCR (IGEPAL 10%) (F50, 50°C)', testMethod: 'ASTM D1693', unit: 'HR', typicalValue: '200' }
 ],
     dataSheet: '/0966B EN.pdf',
   },
@@ -345,19 +345,17 @@ It is highly recommended for producing films with thicknesses in the range of 10
         body: `POLYFIL F700 should be stored to prevent direct sunlight and/or heat exposure. The storage area should also be dry and preferably not exceed 50°C; Bad storage conditions may lead to quality deterioration and product performance. It is advisable to process POLYFIL F700 within 12 months after delivery.`,
       },
     ],
-  specs: [
-      { property: 'MFI (190°C / 2.16 kg)', testMethod: 'ASTM D1238-7', unit: 'g/10min', typicalValue: '3.5 ± 0.5' },
-      { property: 'Density', testMethod: 'ASTM D1505-68', unit: 'kg/m³', typicalValue: '0.937 – 0.945' },
-      { property: 'Titanium crystal type', testMethod: '-', unit: '-', typicalValue: 'Rutile type' },
-      { property: 'TiO₂ content', testMethod: '-', unit: '%', typicalValue: '2' },
-      { property: 'Moisture content', testMethod: '-', unit: 'ppm', typicalValue: '≤ 1500' },
-      { property: 'Vicat softening point', testMethod: 'ASTM D1525', unit: '°C', typicalValue: '115' },
-      { property: 'Tensile strength @ yield', testMethod: 'ASTM D638 - 72', unit: 'MPa', typicalValue: '15' },
-      { property: 'Elongation @ break', testMethod: 'ASTM D638', unit: '%', typicalValue: '> 700' },
-      { property: 'Flexural modulus', testMethod: 'ASTM D790', unit: 'MPa', typicalValue: '650' },
-      { property: 'Hardness', testMethod: 'ASTM D2240', unit: 'Shore D', typicalValue: '65' },
-      { property: 'ESCR (IGEPAL 10%) (F50, 50°C)', testMethod: 'ASTM D1693', unit: 'HR', typicalValue: '200' }
-    ],
+ specs: [
+  { property: 'MFI (190°C / 5 kg)', testMethod: 'ISO 1133', unit: 'g/10min', typicalValue: '0.19 ± 0.1' },
+  { property: 'Density', testMethod: 'ISO 1183', unit: 'kg/m³', typicalValue: '0.952 ± 0.003' },
+  { property: 'Moisture Content', testMethod: '-', unit: 'ppm', typicalValue: '≤ 1500' },
+  { property: 'Melting Point', testMethod: 'ASTM D2117', unit: '°C', typicalValue: '135 ± 5' },
+  { property: 'Vicat Softening Point', testMethod: 'ASTM D1525', unit: '°C', typicalValue: '124' },
+  { property: 'Tensile Strength @ Yield (MD)', testMethod: 'ASTM D638', unit: 'MPa', typicalValue: '24' },
+  { property: 'Tensile Strength @ Yield (MD, TD)', testMethod: 'ASTM D638', unit: 'MPa', typicalValue: '30, 60' },
+  { property: 'Elongation @ Break (MD, TD)', testMethod: 'ASTM D638', unit: '%', typicalValue: '450, 240' },
+  { property: 'ESCR (IGEPAL 10%) (F50, 50°C)', testMethod: 'ASTM D1693', unit: 'HR', typicalValue: '> 1000' }
+],
     dataSheet: '/POLYFIL F700.pdf',
   },
     {
@@ -506,11 +504,11 @@ specs: [
    
     ],
 specs: [
-  { item: 'Carrier',                     testMethod: '-',           unit: '-',         typicalValue: 'Polypropylene' },
-  { item: 'CaCO₃ content',               testMethod: 'ASTM D4218',  unit: '%',         typicalValue: '80 ± 2' },
-  { item: 'Moisture content',            testMethod: 'ASTM D644',   unit: 'ppm',       typicalValue: '≤ 1500' },
-  { item: 'Melt Index (230°C / 2.16 kg)', testMethod: 'ASTM D1238', unit: 'g/10min',   typicalValue: '2 – 8' },
-  { item: 'Density @ 23°C',              testMethod: 'ASTM D1505',  unit: 'g/cm³',     typicalValue: '1.85 ± 0.05' }
+  { property: 'Carrier',               testMethod: '-',           unit: '-',        typicalValue: 'Polypropylene' },
+  { property: 'CaCO₃ content',          testMethod: 'ASTM D4218',  unit: '%',        typicalValue: '80 ± 2' },
+  { property: 'Moisture content',       testMethod: 'ASTM D644',   unit: 'ppm',      typicalValue: '≤ 1500' },
+  { property: 'Melt Index (2.16 kg / 230°C)', testMethod: 'ASTM D1238', unit: 'g/10min', typicalValue: '6 ± 2' },
+  { property: 'Density @ 23°C',         testMethod: 'ASTM D1505',  unit: 'g/cm³',    typicalValue: '1.85 ± 0.05' }
 ],
     dataSheet: '/CALCICHEM 126 FP.pdf',
   },
@@ -520,7 +518,7 @@ specs: [
     subtitleTitle: 'DESCRIPTION',
     subtitle: `CALCICHEM 110 FRF is a mineral modifier with a high, very fine, treated CaCO3 content that has an excellent dispersion in the final product, indicated for direct addition in the processing of polyolefins.
 The CALCICHEM 110 FRF mineral modifier is designed for films, Raffia and ropes and also suitable for general-purpose products with PE and PP carriers.`,
-    detailImage: '/110-FrF.webp',
+    detailImage: '/110-1.webp',
     propertyLabel: 'Item',
     detailSections: [
       
@@ -852,6 +850,9 @@ const previousProduct = async () => {
   if (activeProductIndex.value > 0) {
     const newIndex = activeProductIndex.value - 1;
     await navigateToProduct(newIndex);
+  } else {
+    // Go back to video when on first product
+    closeProduct();
   }
 };
 
