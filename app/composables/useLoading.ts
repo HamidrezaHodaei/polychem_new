@@ -1,3 +1,8 @@
+import { useRoute } from 'vue-router'
+
 export const useLoadingState = () => {
-  return useState<boolean>('appLoading', () => true)
+  const route = useRoute()
+  // اگر صفحه landing است، loading را false کن
+  const initialState = route.path === '/landing' ? false : true
+  return useState<boolean>('appLoading', () => initialState)
 }

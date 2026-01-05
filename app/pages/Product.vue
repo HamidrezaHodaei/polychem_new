@@ -216,9 +216,10 @@
 </template>
 
 <script setup>
-import { ref, nextTick, onMounted, watch } from 'vue';
+import { ref, nextTick, onMounted, watch, onUnmounted } from 'vue';
 
 const route = useRoute();
+const router = useRouter();
 const containerRef = ref(null);
 const activeProductIndex = ref(null);
 const leftVideo = ref(null);
@@ -435,7 +436,7 @@ specs: [
   { property: 'Appearance',                    testMethod: 'Visual',       unit: '-',                  typicalValue: 'Milky-white granular pellets' },
   { property: 'Active Content',                testMethod: '-',            unit: 'wt.%',               typicalValue: '28 ± 1' },
   { property: 'Carrier Resin',                 testMethod: '-',            unit: '–',                  typicalValue: 'LDPE / LLDPE compatible' },
-  { property: 'Melt Flow Index (190°C / 2.16 kg)', testMethod: 'ASTM D1238', unit: 'g/10 min',         typicalValue: '15 ± 1' },
+  { property: 'Melt Flow Index (190°C / 2.16 kg)', testMethod: 'ASTM D1238', unit: 'g/10 min',         typicalValue: '12 ± 1' },
   { property: 'Density',                       testMethod: 'ASTM D792',    unit: 'g/cm³',              typicalValue: '0.94 – 0.96' },
   { property: 'Moisture Content',              testMethod: 'ASTM D6980',   unit: 'wt.%',               typicalValue: '< 0.2' }
 ],
@@ -467,11 +468,11 @@ specs: [
 specs: [
   { item: 'Titanium crystal type',   testMethod: '-',           unit: '-',         typicalValue: 'Rutile type' },
   { item: 'Solid content',           testMethod: '-',           unit: '%',         typicalValue: '60 ± 2' },
-  { item: 'Moisture content',        testMethod: 'ASTM D644',   unit: '%',         typicalValue: '> 0.2' },
-  { item: 'Melt Flow Index (230°C / 2.16 kg)', testMethod: 'ASTM D1238', unit: 'g/10min', typicalValue: '13 ± 2' },
+  { item: 'Moisture content',        testMethod: 'ASTM D644',   unit: '%',         typicalValue: '< 0.2' },
+  { item: 'Melt Flow Index (230°C / 2.16 kg)', testMethod: 'ASTM D1238', unit: 'g/10min', typicalValue: '12 ± 2' },
   { item: 'Density',                 testMethod: 'ASTM D1505',  unit: 'g/cm³',     typicalValue: '1.8' }
 ],
-    dataSheet: '/',
+    dataSheet: '/RAFCOLOR 1560.pdf',
   },
 {
  title: 'CALCICHEM 126 FP',
@@ -516,7 +517,7 @@ specs: [
  title: 'CALCICHEM 110 FRF',
     price: '',
     subtitleTitle: 'DESCRIPTION',
-    subtitle: `CALCICHEM 110 FRF is a mineral modifier with a high, very fine, treated CaCO3 content that has an excellent dispersion in the final product, indicated for direct addition in the processing of polyolefins.
+    subtitle: `CALCICHEM 110 FRF is a mineral modifier with a high, very fine, treated CaCO3 content that has an excellent dispersion in the final product, indicated for direct addition in the processing of PE/PP based products.
 The CALCICHEM 110 FRF mineral modifier is designed for films, Raffia and ropes and also suitable for general-purpose products with PE and PP carriers.`,
     detailImage: '/110-1.webp',
     propertyLabel: 'Item',
@@ -543,10 +544,10 @@ The CALCICHEM 110 FRF mineral modifier is designed for films, Raffia and ropes a
    
     ],
 specs: [
-  { property: 'Carrier',                     testMethod: '-', unit: '-',         typicalValue: 'Polypropylene' },
+  { property: 'Carrier',                     testMethod: '-', unit: '-',         typicalValue: 'polyolefin' },
   { property: 'CaCO₃ content',               testMethod: '-', unit: '%',        typicalValue: '80 ± 2' },
   { property: 'Moisture content',            testMethod: '-', unit: 'ppm',      typicalValue: '≤ 1500' },
-  { property: 'Melt Index (230°C / 5 kg)',   testMethod: '-', unit: 'g/10min',  typicalValue: '12 ± 2' },
+  { property: 'Melt Index (230°C / 2.16 kg)',   testMethod: '-', unit: 'g/10min',  typicalValue: '1.5 ± 1' },
   { property: 'Density @ 23°C',              testMethod: '-', unit: 'g/cm³',    typicalValue: '1.86 ± 0.05' }
 ],
     dataSheet: '/CALCICHEM 110 FRF.pdf',
@@ -834,6 +835,11 @@ watch(() => route.query.index, async (newIndex) => {
   }
 }, { immediate: true });
 
+// Handle browser back button - navigate to home when user clicks back
+const handlePopState = () => {
+  router.push('/');
+};
+
 // Handle initial load - فقط در کلاینت
 onMounted(async () => {
   await nextTick();
@@ -843,6 +849,18 @@ onMounted(async () => {
     if (!isNaN(index)) {
       scrollToProduct(index);
     }
+  }
+
+  // Add popstate listener to detect browser back button
+  if (typeof window !== 'undefined') {
+    window.addEventListener('popstate', handlePopState);
+  }
+});
+
+// Clean up the listener when component unmounts
+onUnmounted(() => {
+  if (typeof window !== 'undefined') {
+    window.removeEventListener('popstate', handlePopState);
   }
 });
 

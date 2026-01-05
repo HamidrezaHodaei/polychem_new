@@ -16,7 +16,7 @@
             <button 
               @click="toggleFullscreenMenu"
               class="nav-link flex items-center gap-2 text-[13px] text-white font-medium px-8 h-full text-white relative overflow-hidden"
-              :class="{ active: isMenuOpen }"
+              :class="{ active: productActive }"
             >
               <span class="relative z-10">PRODUCTS</span>
               <svg class="w-4 h-4 relative z-10" fill="currentColor" viewBox="0 0 20 20">
@@ -77,6 +77,7 @@
           <button 
             @click="toggleFullscreenMenu"
             class="md:hidden ml-auto text-white hover:text-yellow-400 px-4 py-3 rounded-lg hover:bg-black/20 transition-all duration-200 flex items-center gap-2"
+            :class="{ active: productActive }"
             aria-label="Open products"
           >
             <span class="text-[13px] font-medium">PRODUCTS</span>
@@ -94,7 +95,7 @@
               <button 
                 @click="toggleFullscreenMenu"
                 class="nav-link-mobile text-[13px] font-medium text-white hover:text-gray-200 py-3 px-4 rounded relative overflow-hidden text-left w-full"
-                :class="{ active: isMenuOpen }"
+                :class="{ active: productActive }"
               >
                 <span class="relative z-10">PRODUCTS</span>
               </button>
@@ -245,7 +246,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, nextTick, computed } from 'vue'
+import { ref, onMounted, onUnmounted, nextTick, computed, watch } from 'vue'
 import gsap from 'gsap'
 import NavbarMob from './navbar-mob.vue'
 import Chatbox from './chatbox.vue'
@@ -265,6 +266,7 @@ const itemsWrapper = ref(null)
 const menuItems = ref([])
 const isMenuOpen = ref(false)
 const hoveredItem = ref(null)
+const productActive = ref(false)
 const route = useRoute()
 const router = useRouter()
 // handlers for wheel/touch to prevent background scrolling
@@ -423,6 +425,7 @@ const toggleFullscreenMenu = async () => {
     // hide the element after the close animation (adjust if you change durations)
     setTimeout(() => {
       isMenuOpen.value = false
+      productActive.value = false
     }, 800)
   } else {
     // make the DOM visible first, then run animations
@@ -430,6 +433,7 @@ const toggleFullscreenMenu = async () => {
     await nextTick()
     // set initial preview to the first product so image/text offsets match
     try { hoveredItem.value = useCases[0] } catch (e) {}
+    productActive.value = true
     openMenu()
   }
 }
@@ -555,6 +559,7 @@ const closeMenu = () => {
     onComplete: () => {
       menu.style.pointerEvents = 'none'
       hoveredItem.value = null
+      productActive.value = false
       // restore body scrolling and remove event listeners
       try { document.body.style.overflow = '' } catch (err) {}
       if (itemsWrapper.value) {
@@ -592,6 +597,32 @@ onMounted(async () => {
     // attach handlers so wheel/touch don't bubble to body
     itemsWrapper.value.addEventListener('wheel', wheelHandler, { passive: false })
     itemsWrapper.value.addEventListener('touchmove', touchHandler, { passive: false })
+  }
+
+  // Auto-open product menu when on Product page
+  if (route.path === '/product') {
+    await nextTick()
+    isMenuOpen.value = true
+    await nextTick()
+    try { hoveredItem.value = useCases[0] } catch (e) {}
+    productActive.value = true
+    openMenu()
+  }
+})
+
+// Watch for route changes - open menu when coming from Product page back to home
+watch(() => route.path, async (newPath, oldPath) => {
+  // If we're coming back from a product detail page or product page to main pages, open the products menu
+  const isProductPath = oldPath?.includes('/product') || oldPath?.includes('/Product_polychem')
+  const isMainPage = ['/', '/about', '/news', '/careers', '/contact'].includes(newPath)
+  
+  if (isProductPath && isMainPage) {
+    await nextTick()
+    isMenuOpen.value = true
+    await nextTick()
+    try { hoveredItem.value = useCases[0] } catch (e) {}
+    productActive.value = true
+    openMenu()
   }
 })
 

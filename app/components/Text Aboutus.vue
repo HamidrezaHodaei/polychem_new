@@ -56,7 +56,7 @@
 .brand-rest {
   font-weight: 700;
   font-size: clamp(24px, 5vw, 35px);
-  white-space: normal;
+  white-space: nowrap;
   display: inline-block;
   vertical-align: middle;
   max-width: 100%;
@@ -129,10 +129,25 @@
 
 /* تبلت و بالاتر */
 @media (min-width: 641px) {
+  section {
+    min-height: auto;
+  }
+
   .box {
     height: 60px;
   }
-  /* keyframes پیش‌فرض بالا اعمال می‌شود */
+
+  @keyframes slide {
+    0%, 11%    { transform: translateY(0); }
+    12.5%, 23.5% { transform: translateY(-60px); }
+    25%, 36%   { transform: translateY(-120px); }
+    37.5%, 48.5% { transform: translateY(-180px); }
+    50%, 61%   { transform: translateY(-240px); }
+    62.5%, 73.5% { transform: translateY(-300px); }
+    75%, 86%   { transform: translateY(-360px); }
+    87.5%, 98.5% { transform: translateY(-420px); }
+    100%       { transform: translateY(0); }
+  }
 }
 
 /* اکسترا لارج */

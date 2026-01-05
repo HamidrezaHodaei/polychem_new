@@ -1,7 +1,8 @@
+<!-- AppLoading.vue -->
 <template>
   <Teleport to="body">
     <Transition name="fade">
-      <div v-if="isLoading" class="loading-overlay">
+        <div v-if="isLoading && !isLanding" class="loading-overlay">
         <div class="loading-container">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -72,10 +73,24 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import gsap from 'gsap'
 
+import { useRoute } from 'vue-router'
+import { computed } from 'vue'
+
 const isLoading = useLoadingState()
+const route = useRoute()
+
+// هنگام رفتن به صفحه landing، بلافاصله loading را غیرفعال کن
+const isLanding = computed(() => route.path === '/landing')
+
+// اگر کاربر به صفحه landing برود، loading را غیرفعال کن
+watch(isLanding, (newVal) => {
+  if (newVal) {
+    isLoading.value = false
+  }
+}, { immediate: true })
 const yellowCircle = ref(null)
 const whiteCircle = ref(null)
 const path1 = ref(null)

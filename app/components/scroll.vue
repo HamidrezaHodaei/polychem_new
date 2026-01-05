@@ -18,13 +18,13 @@
           <image href="/2015.jpg" x="-12" y="-12" width="250" height="130" preserveAspectRatio="xMidYMid slice"/>
         </pattern>
         <pattern id="img02" x="0" y="0" width="1" height="1">
-          <image  href="/2025.jpeg" x="-10" y="2" width="150" height="170" preserveAspectRatio="xMidYMid slice"/>
+          <image  href="/2019.jpeg" x="5" y="2" width="150" height="170" preserveAspectRatio="xMidYMid slice"/>
         </pattern>
         <pattern id="img03" x="0" y="0" width="1" height="1">
-          <image  href="/2025.jpeg" x="-10" y="2" width="150" height="170" preserveAspectRatio="xMidYMid slice"/>
+          <image  href="/2022.jfif" x="-25" y="-30" width="150" height="170" preserveAspectRatio="xMidYMid slice"/>
         </pattern>
         <pattern id="img04" x="0" y="0" width="1" height="1">
-          <image  href="/2025.jpeg" x="-10" y="2" width="150" height="170" preserveAspectRatio="xMidYMid slice"/>
+          <image  href="/2023.png" x="-20" y="-5" width="150" height="170" preserveAspectRatio="xMidYMid slice"/>
         </pattern>
         <pattern id="img05" x="0" y="0" width="1" height="1">
           <image href="/2025.jpeg" x="-10" y="2" width="150" height="170" preserveAspectRatio="xMidYMid slice"/>
@@ -49,7 +49,7 @@
       <text class="desc01" x="1350" y="175" fill="#A8A8A8" font-size="15" text-anchor="end" style="visibility: hidden">Start of factory construction</text>
       <text class="desc02" x="1350" y="375" fill="#A8A8A8" font-size="15" text-anchor="end" style="visibility: hidden">Completion of the project and official commissioning</text>
       <text class="desc03" x="1350" y="575" fill="#A8A8A8" font-size="15" text-anchor="end" style="visibility: hidden">Start of production</text>
-      <text class="desc04" x="1350" y="775" fill="#A8A8A8" font-size="15" text-anchor="end" style="visibility: hidden">Entry into international markets and beginning of exports</text>
+      <text class="desc04" x="1350" y="775" fill="#A8A8A8" font-size="15" text-anchor="end" style="visibility: hidden">Global market entry</text>
       <text class="desc05" x="1350" y="975" fill="#A8A8A8" font-size="15" text-anchor="end" style="visibility: hidden">Current status and ongoing development</text>
 
       <!-- مسیر اصلی که از تمام خطوط عبور می‌کند -->

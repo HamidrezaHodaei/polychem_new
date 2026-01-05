@@ -1,3 +1,4 @@
+<!-- // app/pages/polychem_manage/index.vue -->
 <template>
   <div class="flex min-h-screen bg-gradient-to-br from-gray-50 to-yellow-50">
     <!-- Sidebar (pinned fixed, fixed height) -->
