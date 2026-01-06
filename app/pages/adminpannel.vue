@@ -18,69 +18,48 @@
             Please enter your details to access the control center.
           </p>
 
-          <!-- Tab Switcher -->
-          <div class="flex gap-4 mb-6">
-            <button 
-              @click="loginMethod = 'password'"
-              :class="[
-                'flex-1 py-2 px-4 rounded-lg font-medium transition-all',
-                loginMethod === 'password' 
-                  ? 'bg-[#FFCD05] text-white' 
-                  : 'bg-white/50 text-gray-600 hover:bg-white/70'
-              ]"
-            >
-              Password
-            </button>
-            <button 
-              @click="loginMethod = 'otp'"
-              :class="[
-                'flex-1 py-2 px-4 rounded-lg font-medium transition-all',
-                loginMethod === 'otp' 
-                  ? 'bg-[#FFCD05] text-white' 
-                  : 'bg-white/50 text-gray-600 hover:bg-white/70'
-              ]"
-            >
-              OTP SMS
-            </button>
+          <!-- پیام خطا -->
+          <div v-if="errorMessage" class="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg text-sm">
+            {{ errorMessage }}
           </div>
 
-          <!-- Error/Success Messages -->
-          <div v-if="message.text" 
-               :class="[
-                 'mb-4 p-3 rounded-lg text-sm',
-                 message.type === 'error' ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'
-               ]"
-          >
-            {{ message.text }}
+          <!-- پیام موفقیت -->
+          <div v-if="successMessage" class="mb-4 p-3 bg-green-100 border border-green-400 text-green-700 rounded-lg text-sm">
+            {{ successMessage }}
           </div>
 
-          <!-- Password Login Form -->
-          <div v-if="loginMethod === 'password'" class="space-y-5">
+          <!-- فرم ورود -->
+          <div class="space-y-5">
+            <!-- Username -->
             <div>
               <label class="block text-sm text-gray-600 mb-2">Username</label>
               <input
-                v-model="passwordForm.username"
+                v-model="form.username"
                 type="text"
                 placeholder="admin"
                 class="w-full px-4 py-3 bg-white/70 border border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
-                @keyup.enter="handlePasswordLogin"
+                @keyup.enter="handleLogin"
+                :disabled="loading"
               />
             </div>
 
+            <!-- Password -->
             <div>
               <label class="block text-sm text-gray-600 mb-2">Password</label>
               <div class="relative">
                 <input
-                  v-model="passwordForm.password"
+                  v-model="form.password"
                   :type="showPassword ? 'text' : 'password'"
                   placeholder="••••••••••••••••••"
                   class="w-full px-4 py-3 bg-white/70 border border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
-                  @keyup.enter="handlePasswordLogin"
+                  @keyup.enter="handleLogin"
+                  :disabled="loading"
                 />
                 <button
                   type="button"
                   @click="showPassword = !showPassword"
                   class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  :disabled="loading"
                 >
                   <svg v-if="!showPassword" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -93,74 +72,20 @@
               </div>
             </div>
 
+            <!-- Forgot Password -->
             <div class="text-right">
               <a href="#" class="text-sm text-gray-600 hover:text-gray-800 hover:underline">
                 Forgot password?
               </a>
             </div>
 
+            <!-- Submit Button -->
             <button
-              @click="handlePasswordLogin"
+              @click="handleLogin"
               :disabled="loading"
-              class="btn-slide-down w-full h-12 rounded-lg relative overflow-hidden border-2 border-[#FFCD05] text-[#FFCD05] transition-colors disabled:opacity-50"
+              class="btn-slide-down w-full h-12 rounded-lg relative overflow-hidden border-2 border-[#FFCD05] text-[#FFCD05] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <span class="relative z-10">{{ loading ? 'Loading...' : 'Sign In' }}</span>
-            </button>
-          </div>
-
-          <!-- OTP Login Form -->
-          <div v-else class="space-y-5">
-            <div v-if="!otpSent">
-              <label class="block text-sm text-gray-600 mb-2">Phone Number</label>
-              <input
-                v-model="otpForm.phone"
-                type="tel"
-                placeholder="+989123456789"
-                class="w-full px-4 py-3 bg-white/70 border border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
-                @keyup.enter="handleRequestOTP"
-              />
-              <p class="text-xs text-gray-500 mt-2">
-                Enter your phone number to receive OTP code
-              </p>
-            </div>
-
-            <div v-if="otpSent">
-              <label class="block text-sm text-gray-600 mb-2">OTP Code</label>
-              <input
-                v-model="otpForm.code"
-                type="text"
-                maxlength="6"
-                placeholder="123456"
-                class="w-full px-4 py-3 bg-white/70 border border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 transition text-center text-2xl tracking-widest"
-                @keyup.enter="handleVerifyOTP"
-              />
-              <p class="text-xs text-gray-500 mt-2 text-center">
-                Code sent to {{ otpForm.phone }}
-              </p>
-              <button 
-                @click="otpSent = false; otpForm.code = ''"
-                class="text-sm text-[#FFCD05] hover:underline w-full text-center mt-2"
-              >
-                Change phone number
-              </button>
-            </div>
-
-            <button
-              v-if="!otpSent"
-              @click="handleRequestOTP"
-              :disabled="loading"
-              class="btn-slide-down w-full h-12 rounded-lg relative overflow-hidden border-2 border-[#FFCD05] text-[#FFCD05] transition-colors disabled:opacity-50"
-            >
-              <span class="relative z-10">{{ loading ? 'Sending...' : 'Send OTP' }}</span>
-            </button>
-
-            <button
-              v-else
-              @click="handleVerifyOTP"
-              :disabled="loading || otpForm.code.length !== 6"
-              class="btn-slide-down w-full h-12 rounded-lg relative overflow-hidden border-2 border-[#FFCD05] text-[#FFCD05] transition-colors disabled:opacity-50"
-            >
-              <span class="relative z-10">{{ loading ? 'Verifying...' : 'Verify & Login' }}</span>
+              <span class="relative z-10">{{ loading ? 'Please wait...' : 'Sign In' }}</span>
             </button>
           </div>
         </div>
@@ -183,151 +108,61 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
-
-// API Base URL
 const API_URL = 'http://localhost:8080/api'
 
-// State
-const loginMethod = ref<'password' | 'otp'>('password')
 const loading = ref(false)
+const errorMessage = ref('')
+const successMessage = ref('')
 const showPassword = ref(false)
-const otpSent = ref(false)
 
-const message = ref<{ text: string; type: 'success' | 'error' }>({ text: '', type: 'success' })
-
-const passwordForm = ref({
+const form = ref({
   username: '',
   password: ''
 })
 
-const otpForm = ref({
-  phone: '',
-  code: ''
-})
-
-// Helper Functions
-const showMessage = (text: string, type: 'success' | 'error' = 'success') => {
-  message.value = { text, type }
-  setTimeout(() => {
-    message.value = { text: '', type: 'success' }
-  }, 5000)
-}
-
-const saveToken = (token: string, user: any) => {
-  localStorage.setItem('auth_token', token)
-  localStorage.setItem('user', JSON.stringify(user))
-}
-
-// Password Login Handler
-const handlePasswordLogin = async () => {
-  if (!passwordForm.value.username || !passwordForm.value.password) {
-    showMessage('Please fill in all fields', 'error')
+// ورود با Username و Password
+const handleLogin = async () => {
+  if (!form.value.username || !form.value.password) {
+    errorMessage.value = 'Please fill in all fields'
     return
   }
 
   loading.value = true
-  
+  errorMessage.value = ''
+  successMessage.value = ''
+
   try {
     const response = await fetch(`${API_URL}/login`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(passwordForm.value)
-    })
-
-    const data = await response.json()
-
-    if (data.success) {
-      saveToken(data.data.token, data.data.user)
-      showMessage('Login successful!', 'success')
-      
-      // Redirect to dashboard
-      setTimeout(() => {
-        router.push('/dashboard')
-      }, 1000)
-    } else {
-      showMessage(data.message || 'Login failed', 'error')
-    }
-  } catch (error) {
-    showMessage('Connection error. Please try again.', 'error')
-    console.error('Login error:', error)
-  } finally {
-    loading.value = false
-  }
-}
-
-// Request OTP Handler
-const handleRequestOTP = async () => {
-  if (!otpForm.value.phone) {
-    showMessage('Please enter phone number', 'error')
-    return
-  }
-
-  loading.value = true
-  
-  try {
-    const response = await fetch(`${API_URL}/otp/request`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ phone: otpForm.value.phone })
-    })
-
-    const data = await response.json()
-
-    if (data.success) {
-      otpSent.value = true
-      showMessage('OTP sent to your phone!', 'success')
-    } else {
-      showMessage(data.message || 'Failed to send OTP', 'error')
-    }
-  } catch (error) {
-    showMessage('Connection error. Please try again.', 'error')
-    console.error('OTP request error:', error)
-  } finally {
-    loading.value = false
-  }
-}
-
-// Verify OTP Handler
-const handleVerifyOTP = async () => {
-  if (!otpForm.value.code || otpForm.value.code.length !== 6) {
-    showMessage('Please enter valid 6-digit code', 'error')
-    return
-  }
-
-  loading.value = true
-  
-  try {
-    const response = await fetch(`${API_URL}/otp/verify`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        phone: otpForm.value.phone,
-        code: otpForm.value.code
+        username: form.value.username,
+        password: form.value.password
       })
     })
 
     const data = await response.json()
 
-    if (data.success) {
-      saveToken(data.data.token, data.data.user)
-      showMessage('Login successful!', 'success')
-      
-      // Redirect to dashboard
-      setTimeout(() => {
-        router.push('/dashboard')
-      }, 1000)
-    } else {
-      showMessage(data.message || 'Invalid OTP code', 'error')
+    if (!response.ok) {
+      throw new Error(data.message || 'Login failed')
     }
-  } catch (error) {
-    showMessage('Connection error. Please try again.', 'error')
-    console.error('OTP verification error:', error)
+
+    // ذخیره توکن در localStorage
+    localStorage.setItem('token', data.token)
+    localStorage.setItem('refresh_token', data.refresh_token)
+    localStorage.setItem('user', JSON.stringify(data.user))
+
+    successMessage.value = 'Login successful! Redirecting...'
+    
+    // Redirect به Dashboard_125
+    setTimeout(() => {
+      router.push('/Dashboard_125')
+    }, 1000)
+
+  } catch (error: any) {
+    errorMessage.value = error.message || 'An error occurred. Please try again.'
   } finally {
     loading.value = false
   }
@@ -362,7 +197,6 @@ const handleVerifyOTP = async () => {
   z-index: 1;
 }
 
-/* Hover filled slide down button effect */
 .btn-slide-down {
   background-color: transparent;
 }
